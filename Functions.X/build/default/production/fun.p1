@@ -1,0 +1,53 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"111 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+[v F496 `(uc ~T0 @X0 1 tf1`uc ]
+"13 ./mylib.h
+[; ;./mylib.h: 13: __attribute__((inline)) uint8_t bitValue(uint8_t b);
+[v _bitValue `TF496 ~T0 @X0 0 e ]
+[v F511 `(v ~T0 @X0 1 tf3`*uc`uc`uc ]
+"17
+[; ;./mylib.h: 17: __attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val);
+[v _bitWrite `TF511 ~T0 @X0 0 e ]
+[v F503 `(uc ~T0 @X0 1 tf2`uc`uc ]
+"15
+[; ;./mylib.h: 15: __attribute__((inline)) uint8_t bitRead(uint8_t number, uint8_t b);
+[v _bitRead `TF503 ~T0 @X0 0 e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"15 fun.c
+[; ;fun.c: 15: int main(int argc, char** argv) {
+[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+{
+[e :U _main ]
+[v _argc `i ~T0 @X0 1 r1 ]
+[v _argv `**uc ~T0 @X0 1 r2 ]
+[f ]
+"17
+[; ;fun.c: 17:     printf("%d\n", bitValue(5));
+[e ( _printf , (. :s 1C -> ( _bitValue (1 -> -> 5 `i `uc `i ]
+"18
+[; ;fun.c: 18:     uint8_t a = 14;
+[v _a `uc ~T0 @X0 1 a ]
+[e = _a -> -> 14 `i `uc ]
+"19
+[; ;fun.c: 19:     bitWrite(&a, 0, 1);
+[e ( _bitWrite (3 , , &U _a -> -> 0 `i `uc -> -> 1 `i `uc ]
+"20
+[; ;fun.c: 20:     printf("%d\n",a);
+[e ( _printf , (. :s 2C -> _a `i ]
+"21
+[; ;fun.c: 21:     printf("%d", bitRead(8,3));
+[e ( _printf , (. :s 3C -> ( _bitRead (2 , -> -> 8 `i `uc -> -> 3 `i `uc `i ]
+"24
+[; ;fun.c: 24:     return (0);
+[e ) -> 0 `i ]
+[e $UE 8  ]
+"25
+[; ;fun.c: 25: }
+[e :UE 8 ]
+}
+[p f _printf 8388736 ]
+[a 3C 37 100 0 ]
+[a 1C 37 100 10 0 ]
+[a 2C 37 100 10 0 ]

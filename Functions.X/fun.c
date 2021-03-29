@@ -13,7 +13,14 @@
  * 
  */
 int main(int argc, char** argv) {
-
+    
+    printf("%d\n", bitValue(5));
+    uint8_t a = 14;
+    bitWrite(&a, 0, 1);
+    printf("%d\n",a);
+    printf("%d", bitRead(8,3));
+    
+    
     return (EXIT_SUCCESS);
 }
 

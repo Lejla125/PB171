@@ -1,0 +1,115 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F37 `(uc ~T0 @X0 1 tf1`uc ]
+"3 mylib.c
+[; ;mylib.c: 3:  __attribute__((inline)) uint8_t bitValue(uint8_t b){
+[v _bitValue `TF37 ~T0 @X0 1 e ]
+{
+[e :U _bitValue ]
+[v _b `uc ~T0 @X0 1 r1 ]
+[f ]
+"4
+[; ;mylib.c: 4:     return 1 << b;
+[e ) -> << -> 1 `i -> _b `i `uc ]
+[e $UE 1  ]
+"5
+[; ;mylib.c: 5: }
+[e :UE 1 ]
+}
+[v F40 `(v ~T0 @X0 1 tf2`*uc`uc ]
+"7
+[; ;mylib.c: 7: __attribute__((inline)) void bitClear(uint8_t *number, uint8_t b){
+[v _bitClear `TF40 ~T0 @X0 1 e ]
+{
+[e :U _bitClear ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"8
+[; ;mylib.c: 8:     *number &= ~bitValue(b);
+[e =& *U _number -> ~ -> ( _bitValue (1 _b `i `uc ]
+"9
+[; ;mylib.c: 9: }
+[e :UE 2 ]
+}
+[v F44 `(uc ~T0 @X0 1 tf2`uc`uc ]
+"11
+[; ;mylib.c: 11: __attribute__((inline)) uint8_t bitRead(uint8_t number, uint8_t b){
+[v _bitRead `TF44 ~T0 @X0 1 e ]
+{
+[e :U _bitRead ]
+[v _number `uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"12
+[; ;mylib.c: 12:     return (number >> b) & 0x01;
+[e ) -> & >> -> _number `i -> _b `i -> 1 `i `uc ]
+[e $UE 3  ]
+"13
+[; ;mylib.c: 13: }
+[e :UE 3 ]
+}
+[v F48 `(v ~T0 @X0 1 tf2`*uc`uc ]
+"15
+[; ;mylib.c: 15: __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b){
+[v _bitSet `TF48 ~T0 @X0 1 e ]
+{
+[e :U _bitSet ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"16
+[; ;mylib.c: 16:     *number |= bitValue(b);
+[e =| *U _number -> ( _bitValue (1 _b `uc ]
+"17
+[; ;mylib.c: 17: }
+[e :UE 4 ]
+}
+[v F52 `(v ~T0 @X0 1 tf3`*uc`uc`uc ]
+"19
+[; ;mylib.c: 19:  __attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val){
+[v _bitWrite `TF52 ~T0 @X0 1 e ]
+{
+[e :U _bitWrite ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[v _val `uc ~T0 @X0 1 r3 ]
+[f ]
+"20
+[; ;mylib.c: 20:     val ? bitSet(number, b) : bitClear(number, b);
+[e ? != -> _val `i -> 0 `i : ( _bitSet (2 , _number _b ( _bitClear (2 , _number _b ]
+"21
+[; ;mylib.c: 21: }
+[e :UE 5 ]
+}
+[v F57 `(uc ~T0 @X0 1 tf1`i ]
+"23
+[; ;mylib.c: 23:  __attribute__((inline)) uint8_t lowByte(int number){
+[v _lowByte `TF57 ~T0 @X0 1 e ]
+{
+[e :U _lowByte ]
+[v _number `i ~T0 @X0 1 r1 ]
+[f ]
+"24
+[; ;mylib.c: 24:     return number&0xFF;
+[e ) -> & _number -> 255 `i `uc ]
+[e $UE 6  ]
+"25
+[; ;mylib.c: 25: }
+[e :UE 6 ]
+}
+[v F60 `(uc ~T0 @X0 1 tf1`i ]
+"27
+[; ;mylib.c: 27:  __attribute__((inline)) uint8_t highByte(int number){
+[v _highByte `TF60 ~T0 @X0 1 e ]
+{
+[e :U _highByte ]
+[v _number `i ~T0 @X0 1 r1 ]
+[f ]
+"28
+[; ;mylib.c: 28:     return (number>>8) & 0xFF;
+[e ) -> & >> _number -> 8 `i -> 255 `i `uc ]
+[e $UE 7  ]
+"29
+[; ;mylib.c: 29: }
+[e :UE 7 ]
+}
