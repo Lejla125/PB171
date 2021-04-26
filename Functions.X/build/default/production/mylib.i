@@ -137,9 +137,9 @@ __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b){
 }
 
  __attribute__((inline)) uint8_t lowByte(int number){
-    return number&0xFF;
+    return number & 0xFF;
 }
 
  __attribute__((inline)) uint8_t highByte(int number){
-    return (number>>8) & 0xFF;
+    return (number >> 8) & 0xFF;
 }

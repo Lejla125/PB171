@@ -21,9 +21,9 @@ inline void bitSet(uint8_t *number, uint8_t b){
 }
 
  inline uint8_t lowByte(int number){
-    return number&0xFF;
+    return number & 0xFF;
 }
 
  inline uint8_t highByte(int number){
-    return (number>>8) & 0xFF;
+    return (number >> 8) & 0xFF;
 }

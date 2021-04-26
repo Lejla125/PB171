@@ -8,10 +8,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mylib.h"
+#include "pins.h"
 
 /*
  * 
  */
+enum mode {ANALOG_INPUT, INPUT, OUTPUT};
+
 int main(int argc, char** argv) {
     
     printf("%d\n", bitValue(5));
@@ -20,6 +23,8 @@ int main(int argc, char** argv) {
     printf("%d\n",a);
     printf("%d", bitRead(8,3));
     
+    pinMode(33, OUTPUT);
+    pinMode(15, INPUT);
     
     return (EXIT_SUCCESS);
 }

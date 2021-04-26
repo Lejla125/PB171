@@ -90,7 +90,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _number `i ~T0 @X0 1 r1 ]
 [f ]
 "24
-[; ;mylib.c: 24:     return number&0xFF;
+[; ;mylib.c: 24:     return number & 0xFF;
 [e ) -> & _number -> 255 `i `uc ]
 [e $UE 6  ]
 "25
@@ -106,7 +106,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _number `i ~T0 @X0 1 r1 ]
 [f ]
 "28
-[; ;mylib.c: 28:     return (number>>8) & 0xFF;
+[; ;mylib.c: 28:     return (number >> 8) & 0xFF;
 [e ) -> & >> _number -> 8 `i -> 255 `i `uc ]
 [e $UE 7  ]
 "29

@@ -3,6 +3,26 @@
 [d edition pro ]
 [d chip 18F44K22 ]
 [d frameptr 4065 ]
+"26 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
+[e E6332 mode `uc
+ANALOG_INPUT 0
+INPUT 1
+OUTPUT 2
+]
+"8 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[e E6013 ports `uc
+A 0
+B 1
+C 2
+D 3
+E 4
+]
+"55
+[e E6009 mode `uc
+ANALOG_INPUT 0
+INPUT 1
+OUTPUT 2
+]
 "1 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c
@@ -51,7 +71,7 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"15 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
+"18 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
 [v _main main `(i  1 e 2 0 ]
 "3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
 [v _bitValue bitValue `T(uc  1 e 1 0 ]
@@ -63,6 +83,30 @@
 [v _bitSet bitSet `T(v  1 e 1 0 ]
 "19
 [v _bitWrite bitWrite `T(v  1 e 1 0 ]
+"11 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[v _pinToPort pinToPort `(v  1 e 1 0 ]
+"48
+[v _pinMode pinMode `(v  1 e 1 0 ]
+"52 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"97
+[v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
+"147
+[v _ANSELC ANSELC `VEuc  1 e 1 @3898 ]
+"198
+[v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
+"260
+[v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
+"8060
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"8282
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"8504
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"8726
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"8948
+[v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
@@ -71,12 +115,16 @@
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "69
 [v _nout nout `i  1 s 2 nout ]
-"15 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
+"8 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[v _port port `E6013  1 e 1 0 ]
+"9
+[v _bit_val bit_val `uc  1 e 1 0 ]
+"18 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
 [v _main main `(i  1 e 2 0 ]
 {
-"18
+"21
 [v main@a a `uc  1 a 1 94 ]
-"25
+"30
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -84,18 +132,18 @@
 "8
 [v printf@ap ap `[1]*.39v  1 a 2 91 ]
 "5
-[v printf@fmt fmt `*.32Cuc  1 p 2 87 ]
+[v printf@fmt fmt `*.25Cuc  1 p 2 87 ]
 "13
 } 0
 "1390 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1393
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 85 ]
-[s S535 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 85 ]
+[s S578 _IO_FILE 0 ]
 "1390
-[v vfprintf@fp fp `*.2S535  1 p 2 79 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 81 ]
+[v vfprintf@fp fp `*.2S578  1 p 2 79 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 81 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 83 ]
 "1404
 } 0
@@ -104,10 +152,10 @@
 {
 "696
 [v vfpfcnvrt@ll ll `o  1 a 8 71 ]
-[s S535 _IO_FILE 0 ]
+[s S578 _IO_FILE 0 ]
 "692
-[v vfpfcnvrt@fp fp `*.2S535  1 p 2 63 ]
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 65 ]
+[v vfpfcnvrt@fp fp `*.2S578  1 p 2 63 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 65 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
 "1387
 } 0
@@ -121,9 +169,9 @@
 [v dtoa@s s `i  1 a 2 51 ]
 [v dtoa@w w `i  1 a 2 49 ]
 [v dtoa@p p `i  1 a 2 47 ]
-[s S535 _IO_FILE 0 ]
+[s S578 _IO_FILE 0 ]
 "287
-[v dtoa@fp fp `*.2S535  1 p 2 27 ]
+[v dtoa@fp fp `*.2S578  1 p 2 27 ]
 [v dtoa@d d `o  1 p 8 29 ]
 "328
 } 0
@@ -133,9 +181,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S535 _IO_FILE 0 ]
+[s S578 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.2S535  1 p 2 16 ]
+[v pad@fp fp `*.2S578  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -158,16 +206,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S518 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.2S518  1 p 2 11 ]
+[s S561 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.2S561  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S518 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.2S518  1 p 2 2 ]
+[s S561 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.2S561  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\putch.c
@@ -204,6 +252,29 @@
 [v ___aodiv@dividend dividend `o  1 p 8 0 ]
 [v ___aodiv@divisor divisor `o  1 p 8 8 ]
 "43
+} 0
+"48 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[v _pinMode pinMode `(v  1 e 1 0 ]
+{
+[v pinMode@pin pin `uc  1 a 1 wreg ]
+[v pinMode@pin pin `uc  1 a 1 wreg ]
+[v pinMode@mode mode `uc  1 p 1 39 ]
+[v pinMode@pin pin `uc  1 a 1 42 ]
+"136
+} 0
+"11
+[v _pinToPort pinToPort `(v  1 e 1 0 ]
+{
+[v pinToPort@pin pin `uc  1 a 1 wreg ]
+"17
+[v pinToPort@i i `uc  1 a 1 38 ]
+"12
+[v pinToPort@pins pins `[36]uc  1 a 36 1 ]
+"11
+[v pinToPort@pin pin `uc  1 a 1 wreg ]
+[v pinToPort@F6023 F6023 `[36]uc  1 s 36 F6023 ]
+[v pinToPort@pin pin `uc  1 a 1 37 ]
+"46
 } 0
 "19 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
 [v _bitWrite bitWrite `T(v  1 e 1 0 ]
