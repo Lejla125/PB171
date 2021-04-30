@@ -9,12 +9,13 @@
 #define	PINS_H
 
 #include <stdint.h>
-#include <stdbool.h>
 #include <xc.h>
 #include "mylib.h"
 
+enum values {LOW = 0, HIGH = 1};
+
 void pinMode(uint8_t pin, uint8_t mode);
-bool digitalRead(uint8_t pin);
+enum values digitalRead(uint8_t pin);
 
 #endif	/* PINS_H */
 

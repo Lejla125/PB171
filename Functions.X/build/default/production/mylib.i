@@ -143,3 +143,13 @@ __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b){
  __attribute__((inline)) uint8_t highByte(int number){
     return (number >> 8) & 0xFF;
 }
+ __attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b){
+     *p |= bitValue(b);
+ }
+
+ __attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b){
+     *p |= ~bitValue(b);
+ }
+ __attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b){
+    return (*p >> b) & 0x01;
+}

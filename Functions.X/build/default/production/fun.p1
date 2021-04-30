@@ -14,13 +14,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15
 [; ;./mylib.h: 15: __attribute__((inline)) uint8_t bitRead(uint8_t number, uint8_t b);
 [v _bitRead `TF503 ~T0 @X0 0 e ]
-"16 ./pins.h
-[; ;./pins.h: 16: void pinMode(uint8_t pin, uint8_t mode);
+"17 ./pins.h
+[; ;./pins.h: 17: void pinMode(uint8_t pin, uint8_t mode);
 [v _pinMode `(v ~T0 @X0 0 ef2`uc`uc ]
 "26 fun.c
 [; ;fun.c: 26:     pinMode(33, OUTPUT);
-[c E6332 0 1 2 .. ]
-[n E6332 mode ANALOG_INPUT INPUT OUTPUT  ]
+[c E6347 0 1 2 .. ]
+[n E6347 mode ANALOG_INPUT INPUT OUTPUT  ]
+"28
+[; ;fun.c: 28:     printf("%d", digitalRead(18));
+[c E6339 0 1 .. ]
+[n E6339 values LOW HIGH  ]
+"18 ./pins.h
+[; ;./pins.h: 18: enum values digitalRead(uint8_t pin);
+[v _digitalRead `(E6339 ~T0 @X0 0 ef1`uc ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -804,19 +811,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _printf , (. :s 3C -> ( _bitRead (2 , -> -> 8 `i `uc -> -> 3 `i `uc `i ]
 "26
 [; ;fun.c: 26:     pinMode(33, OUTPUT);
-[e ( _pinMode (2 , -> -> 33 `i `uc -> . `E6332 2 `uc ]
+[e ( _pinMode (2 , -> -> 33 `i `uc -> . `E6347 2 `uc ]
 "27
 [; ;fun.c: 27:     pinMode(15, INPUT);
-[e ( _pinMode (2 , -> -> 15 `i `uc -> . `E6332 1 `uc ]
-"29
-[; ;fun.c: 29:     return (0);
+[e ( _pinMode (2 , -> -> 15 `i `uc -> . `E6347 1 `uc ]
+"28
+[; ;fun.c: 28:     printf("%d", digitalRead(18));
+[e ( _printf , (. :s 4C -> ( _digitalRead (1 -> -> 18 `i `uc `ui ]
+"30
+[; ;fun.c: 30:     return (0);
 [e ) -> 0 `i ]
 [e $UE 853  ]
-"30
-[; ;fun.c: 30: }
+"31
+[; ;fun.c: 31: }
 [e :UE 853 ]
 }
 [p f _printf 8388736 ]
 [a 3C 37 100 0 ]
+[a 4C 37 100 0 ]
 [a 1C 37 100 10 0 ]
 [a 2C 37 100 10 0 ]

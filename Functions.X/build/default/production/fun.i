@@ -330,13 +330,13 @@ __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b);
 __attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val);
 __attribute__((inline)) uint8_t highByte(int number);
 __attribute__((inline)) uint8_t lowByte(int number);
+__attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b);
+__attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b);
+__attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b);
 # 10 "fun.c" 2
 
 # 1 "./pins.h" 1
 # 12 "./pins.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdbool.h" 1 3
-# 12 "./pins.h" 2
-
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9767,12 +9767,14 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 13 "./pins.h" 2
+# 12 "./pins.h" 2
 
 
+
+enum values {LOW = 0, HIGH = 1};
 
 void pinMode(uint8_t pin, uint8_t mode);
-_Bool digitalRead(uint8_t pin);
+enum values digitalRead(uint8_t pin);
 # 11 "fun.c" 2
 
 
@@ -9791,6 +9793,7 @@ int main(int argc, char** argv) {
 
     pinMode(33, OUTPUT);
     pinMode(15, INPUT);
+    printf("%d", digitalRead(18));
 
     return (0);
 }

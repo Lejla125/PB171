@@ -113,3 +113,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mylib.c: 29: }
 [e :UE 7 ]
 }
+[v F63 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"30
+[; ;mylib.c: 30:  __attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b){
+[v _setBit `TF63 ~T0 @X0 1 e ]
+{
+[e :U _setBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"31
+[; ;mylib.c: 31:      *p |= bitValue(b);
+[e =| *U _p -> ( _bitValue (1 _b `uc ]
+"32
+[; ;mylib.c: 32:  }
+[e :UE 8 ]
+}
+[v F67 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"34
+[; ;mylib.c: 34:  __attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b){
+[v _clearBit `TF67 ~T0 @X0 1 e ]
+{
+[e :U _clearBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"35
+[; ;mylib.c: 35:      *p |= ~bitValue(b);
+[e =| *U _p -> ~ -> ( _bitValue (1 _b `i `uc ]
+"36
+[; ;mylib.c: 36:  }
+[e :UE 9 ]
+}
+[v F71 `(uc ~T0 @X0 1 tf2`*Vuc`uc ]
+"37
+[; ;mylib.c: 37:  __attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b){
+[v _readBit `TF71 ~T0 @X0 1 e ]
+{
+[e :U _readBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"38
+[; ;mylib.c: 38:     return (*p >> b) & 0x01;
+[e ) -> & >> -> *U _p `i -> _b `i -> 1 `i `uc ]
+[e $UE 10  ]
+"39
+[; ;mylib.c: 39: }
+[e :UE 10 ]
+}

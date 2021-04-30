@@ -115,9 +115,6 @@ typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdint.h" 2 3
 # 1 "pins.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdbool.h" 1 3
-# 2 "pins.c" 2
-
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9622,7 +9619,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 3 "pins.c" 2
+# 2 "pins.c" 2
 
 # 1 "./mylib.h" 1
 # 13 "./mylib.h"
@@ -9633,50 +9630,66 @@ __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b);
 __attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val);
 __attribute__((inline)) uint8_t highByte(int number);
 __attribute__((inline)) uint8_t lowByte(int number);
-# 4 "pins.c" 2
+__attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b);
+__attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b);
+__attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b);
+# 3 "pins.c" 2
 
 
-enum mode {ANALOG_INPUT = 0, INPUT = 1, OUTPUT = 2};
+enum mode {ANALOG_INPUT = 0, INPUT = 1, INPUT_PULLUP = 2, OUTPUT = 3};
 enum ports {A, B, C, D, E};
-enum ports port;
-uint8_t bit_val;
+enum values {LOW = 0, HIGH = 1};
 
-void pinToPort(uint8_t pin){
+uint8_t pinToIndex(uint8_t pin){
     uint8_t pins[36] = {2, 3, 4, 5, 6, 7, 14, 13,
                          33, 34, 35, 36, 37, 38, 39, 40,
                          15, 16, 17, 18, 23, 24, 25, 26,
                          19, 20, 21, 22, 27, 28, 29, 30,
                          8, 9, 10, 1};
-    for(uint8_t i=0; i<36; i++){
+    uint8_t i;
+    for(i=0; i<36; i++){
         if (pins[i] == pin){
-            if(i >= 0 && i <= 7) {
-                port = A;
-                bit_val = i;
-                break;
-            }
-            else if (i >= 8 && i <= 15){
-                port = B;
-                bit_val = i-8;
-                break;
-            }
-            else if (i >= 16 && i <= 23){
-                 port = C;
-                 bit_val = i-16;
-                 break;
-            }
-            else if (i >= 24 && i <= 31){
-                port = D;
-                bit_val = i-24;
-                break;
-            }
-            else {
-                port = E;
-                bit_val = i-32;
-                break;
-            }
+            break;
         }
     }
+    return i;
  }
+
+enum ports convertToPort(uint8_t i){
+    if(i >= 0 && i <= 7) {
+        return A;
+    }
+    else if (i >= 8 && i <= 15){
+        return B;
+    }
+    else if (i >= 16 && i <= 23){
+       return C;
+    }
+    else if (i >= 24 && i <= 31){
+        return D;
+    }
+    else {
+        return E;
+    }
+}
+
+uint8_t convertToBit(uint8_t i){
+    if(i >= 0 && i <= 7) {
+        return i;
+    }
+    else if (i >= 8 && i <= 15){
+        return i-8;
+    }
+    else if (i >= 16 && i <= 23){
+        return i-16;
+    }
+    else if (i >= 24 && i <= 31){
+        return i-24;
+    }
+    else {
+        return i-32;
+    }
+}
 
  void pinMode(uint8_t pin, uint8_t mode){
      if (pin == 11 ||
@@ -9685,30 +9698,33 @@ void pinToPort(uint8_t pin){
              pin == 32 ||
              pin < 1 ||
              pin > 40) return;
-     if(mode != ANALOG_INPUT && mode != INPUT && mode != OUTPUT) return;
+     if(mode != ANALOG_INPUT && mode != INPUT && mode != INPUT_PULLUP && mode != OUTPUT) return;
 
-     pinToPort(pin);
+     uint8_t port_num = pinToIndex(pin);
+     enum ports port = convertToPort(port_num);
+     uint8_t bit_val = convertToBit(port_num);
+
      if(mode == ANALOG_INPUT){
          switch(port) {
              case A:
-                TRISA = bitValue(bit_val);
-                ANSELA = 1;
-                break;
+                 setBit(&TRISA, bit_val);
+                 setBit(&ANSELA, bit_val);
+                 break;
              case B :
-                TRISB = bitValue(bit_val);
-                ANSELB = 1;
-                break;
+                 setBit(&TRISB, bit_val);
+                 setBit(&ANSELB, bit_val);
+                 break;
              case C:
-                 TRISC = bitValue(bit_val);
-                 ANSELC = 1;
+                 setBit(&TRISC, bit_val);
+                 setBit(&ANSELC, bit_val);
                  break;
              case D:
-                 TRISD = bitValue(bit_val);
-                 ANSELD = 1;
+                 setBit(&TRISD, bit_val);
+                 setBit(&ANSELD, bit_val);
                  break;
              case E:
-                 TRISE = bitValue(bit_val);
-                 ANSELE = 1;
+                 setBit(&TRISE, bit_val);
+                 setBit(&ANSELE, bit_val);
                  break;
              default:
                  break;
@@ -9717,24 +9733,60 @@ void pinToPort(uint8_t pin){
      else if(mode == INPUT){
          switch(port) {
              case A:
-                TRISA = bitValue(bit_val);
-                ANSELA = 0;
-                break;
+                 setBit(&TRISA, bit_val);
+                 clearBit(&LATA, bit_val);
+                 clearBit(&ANSELA, bit_val);
+                 break;
              case B :
-                TRISB = bitValue(bit_val);
-                ANSELB = 0;
-                break;
+                 setBit(&TRISB, bit_val);
+                 clearBit(&LATB, bit_val);
+                 clearBit(&ANSELB, bit_val);
+                 break;
              case C:
-                 TRISC = bitValue(bit_val);
-                 ANSELC = 0;
+                 setBit(&TRISC, bit_val);
+                 clearBit(&LATC, bit_val);
+                 clearBit(&ANSELC, bit_val);
                  break;
              case D:
-                 TRISD = bitValue(bit_val);
-                 ANSELD = 0;
+                 setBit(&TRISD, bit_val);
+                 clearBit(&LATD, bit_val);
+                 clearBit(&ANSELD, bit_val);
                  break;
              case E:
-                 TRISE = bitValue(bit_val);
-                 ANSELE = 0;
+                 setBit(&TRISE, bit_val);
+                 clearBit(&LATE, bit_val);
+                 clearBit(&ANSELE, bit_val);
+                 break;
+             default:
+                 break;
+         }
+     }
+     else if(mode == INPUT_PULLUP){
+         switch(port) {
+             case A:
+                 setBit(&TRISA, bit_val);
+                 setBit(&LATA, bit_val);
+                 clearBit(&ANSELA, bit_val);
+                 break;
+             case B :
+                 setBit(&TRISB, bit_val);
+                 setBit(&LATB, bit_val);
+                 clearBit(&ANSELB, bit_val);
+                 break;
+             case C:
+                 setBit(&TRISC, bit_val);
+                 setBit(&LATC, bit_val);
+                 clearBit(&ANSELC, bit_val);
+                 break;
+             case D:
+                 setBit(&TRISD, bit_val);
+                 setBit(&LATD, bit_val);
+                 clearBit(&ANSELD, bit_val);
+                 break;
+             case E:
+                 setBit(&TRISE, bit_val);
+                 setBit(&LATE, bit_val);
+                 clearBit(&ANSELE, bit_val);
                  break;
              default:
                  break;
@@ -9743,27 +9795,55 @@ void pinToPort(uint8_t pin){
      else {
          switch(port) {
              case A:
-                TRISA = ~bitValue(bit_val);
-                ANSELA = 0;
-                break;
+                 clearBit(&TRISA, bit_val);
+                 clearBit(&ANSELA, bit_val);
+                 break;
              case B :
-                TRISB = ~bitValue(bit_val);
-                ANSELB = 0;
-                break;
+                 clearBit(&TRISB, bit_val);
+                 clearBit(&ANSELB, bit_val);
+                 break;
              case C:
-                 TRISC = ~bitValue(bit_val);
-                 ANSELC = 0;
+                 clearBit(&TRISC, bit_val);
+                 clearBit(&ANSELC, bit_val);
                  break;
              case D:
-                 TRISD = ~bitValue(bit_val);
-                 ANSELD = 0;
+                 clearBit(&TRISD, bit_val);
+                 clearBit(&ANSELD, bit_val);
                  break;
              case E:
-                 TRISE = ~bitValue(bit_val);
-                 ANSELE = 0;
+                 clearBit(&TRISA, bit_val);
+                 clearBit(&ANSELE, bit_val);
                  break;
              default:
                  break;
          }
      }
+ }
+
+ enum values digitalRead(uint8_t pin){
+     uint8_t port_num = pinToIndex(pin);
+     enum ports port = convertToPort(port_num);
+     uint8_t bit_val = convertToBit(port_num);
+     enum values value;
+
+     switch(port) {
+         case A:
+             value = readBit(&PORTA, bit_val);
+             break;
+         case B :
+             value = readBit(&PORTB, bit_val);
+             break;
+         case C:
+             value = readBit(&PORTC, bit_val);
+             break;
+         case D:
+             value = readBit(&PORTD, bit_val);
+             break;
+         case E:
+             value = readBit(&PORTE, bit_val);
+             break;
+         default:
+             break;
+         }
+     return value;
  }

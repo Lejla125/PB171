@@ -13,7 +13,7 @@
 /*
  * 
  */
-enum mode {ANALOG_INPUT, INPUT, OUTPUT};
+enum mode {ANALOG_INPUT = 0, INPUT = 1, INPUT_PULLUP = 2, OUTPUT = 3};
 
 int main(int argc, char** argv) {
     
@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
     
     pinMode(33, OUTPUT);
     pinMode(15, INPUT);
+    printf("%d", digitalRead(18));
     
     return (EXIT_SUCCESS);
 }

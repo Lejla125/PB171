@@ -1,20 +1,20 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"8 pins.c
-[; ;pins.c: 8: enum ports port;
-[c E6013 0 1 2 3 4 .. ]
-[n E6013 ports A B C D E  ]
-"55
-[; ;pins.c: 55:      if(mode != ANALOG_INPUT && mode != INPUT && mode != OUTPUT) return;
-[c E6009 0 1 2 .. ]
-[n E6009 mode ANALOG_INPUT INPUT OUTPUT  ]
+"24 pins.c
+[; ;pins.c: 24: enum ports convertToPort(uint8_t i){
+[c E6026 0 1 2 3 4 .. ]
+[n E6026 ports A B C D E  ]
+"67
+[; ;pins.c: 67:      if(mode != ANALOG_INPUT && mode != INPUT && mode != INPUT_PULLUP && mode != OUTPUT) return;
+[c E6021 0 1 2 3 .. ]
+[n E6021 mode ANALOG_INPUT INPUT INPUT_PULLUP OUTPUT  ]
+[v F6010 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"20 ./mylib.h
+[; ;./mylib.h: 20: __attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b);
+[v _setBit `TF6010 ~T0 @X0 0 e ]
 "8060 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 8060: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-[v F5984 `(uc ~T0 @X0 1 tf1`uc ]
-"13 ./mylib.h
-[; ;./mylib.h: 13: __attribute__((inline)) uint8_t bitValue(uint8_t b);
-[v _bitValue `TF5984 ~T0 @X0 0 e ]
-"52 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
+"52
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 52: extern volatile unsigned char ANSELA __attribute__((address(0xF38)));
 [v _ANSELA `Vuc ~T0 @X0 0 e@3896 ]
 "8282
@@ -41,6 +41,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "260
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 260: extern volatile unsigned char ANSELE __attribute__((address(0xF3C)));
 [v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
+[v F6014 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"21 ./mylib.h
+[; ;./mylib.h: 21: __attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b);
+[v _clearBit `TF6014 ~T0 @X0 0 e ]
+"7560 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7560: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"7672
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7672: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"7784
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7784: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"7896
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7896: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"8008
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 8008: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
+[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+"189 pins.c
+[; ;pins.c: 189:  enum values digitalRead(uint8_t pin){
+[c E6032 0 1 .. ]
+[n E6032 values LOW HIGH  ]
+[v F6018 `(uc ~T0 @X0 1 tf2`*Vuc`uc ]
+"22 ./mylib.h
+[; ;./mylib.h: 22: __attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b);
+[v _readBit `TF6018 ~T0 @X0 0 e ]
+"6280 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 6280: extern volatile unsigned char PORTA __attribute__((address(0xF80)));
+[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
+"6565
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 6565: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"6835
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 6835: extern volatile unsigned char PORTC __attribute__((address(0xF82)));
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+"7142
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7142: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
+[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"7385
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 7385: extern volatile unsigned char PORTE __attribute__((address(0xF84)));
+[v _PORTE `Vuc ~T0 @X0 0 e@3972 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -797,24 +839,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17372
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h: 17372: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 pins.c
-[; ;pins.c: 8: enum ports port;
-[v _port `E6013 ~T0 @X0 1 e ]
-"9
-[; ;pins.c: 9: uint8_t bit_val;
-[v _bit_val `uc ~T0 @X0 1 e ]
-"11
-[; ;pins.c: 11: void pinToPort(uint8_t pin){
-[v _pinToPort `(v ~T0 @X0 1 ef1`uc ]
+"9 pins.c
+[; ;pins.c: 9: uint8_t pinToIndex(uint8_t pin){
+[v _pinToIndex `(uc ~T0 @X0 1 ef1`uc ]
 {
-[e :U _pinToPort ]
+[e :U _pinToIndex ]
 [v _pin `uc ~T0 @X0 1 r1 ]
 [f ]
-[v F6023 `uc ~T0 @X0 -> 36 `i s ]
-[i F6023
+[v F6037 `uc ~T0 @X0 -> 36 `i s ]
+[i F6037
 :U ..
-"12
-[; ;pins.c: 12:     uint8_t pins[36] = {2, 3, 4, 5, 6, 7, 14, 13,
+"10
+[; ;pins.c: 10:     uint8_t pins[36] = {2, 3, 4, 5, 6, 7, 14, 13,
 -> -> 2 `i `uc
 -> -> 3 `i `uc
 -> -> 4 `i `uc
@@ -854,422 +890,722 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _pins `uc ~T0 @X0 -> 36 `i a ]
-[e = _pins F6023 ]
-"17
-[; ;pins.c: 17:     for(uint8_t i=0; i<36; i++){
-{
+[e = _pins F6037 ]
+"15
+[; ;pins.c: 15:     uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
+"16
+[; ;pins.c: 16:     for(i=0; i<36; i++){
+{
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 36 `i 852  ]
 [e $U 853  ]
 [e :U 852 ]
 {
-"18
-[; ;pins.c: 18:         if (pins[i] == pin){
+"17
+[; ;pins.c: 17:         if (pins[i] == pin){
 [e $ ! == -> *U + &U _pins * -> _i `ux -> -> # *U &U _pins `ui `ux `i -> _pin `i 855  ]
 {
+"18
+[; ;pins.c: 18:             break;
+[e $U 853  ]
 "19
-[; ;pins.c: 19:             if(i >= 0 && i <= 7) {
-[e $ ! && >= -> _i `i -> 0 `i <= -> _i `i -> 7 `i 856  ]
-{
-"20
-[; ;pins.c: 20:                 port = A;
-[e = _port . `E6013 0 ]
-"21
-[; ;pins.c: 21:                 bit_val = i;
-[e = _bit_val _i ]
-"22
-[; ;pins.c: 22:                 break;
-[e $U 853  ]
-"23
-[; ;pins.c: 23:             }
-}
-[e $U 857  ]
-"24
-[; ;pins.c: 24:             else if (i >= 8 && i <= 15){
-[e :U 856 ]
-[e $ ! && >= -> _i `i -> 8 `i <= -> _i `i -> 15 `i 858  ]
-{
-"25
-[; ;pins.c: 25:                 port = B;
-[e = _port . `E6013 1 ]
-"26
-[; ;pins.c: 26:                 bit_val = i-8;
-[e = _bit_val -> - -> _i `i -> 8 `i `uc ]
-"27
-[; ;pins.c: 27:                 break;
-[e $U 853  ]
-"28
-[; ;pins.c: 28:             }
-}
-[e $U 859  ]
-"29
-[; ;pins.c: 29:             else if (i >= 16 && i <= 23){
-[e :U 858 ]
-[e $ ! && >= -> _i `i -> 16 `i <= -> _i `i -> 23 `i 860  ]
-{
-"30
-[; ;pins.c: 30:                  port = C;
-[e = _port . `E6013 2 ]
-"31
-[; ;pins.c: 31:                  bit_val = i-16;
-[e = _bit_val -> - -> _i `i -> 16 `i `uc ]
-"32
-[; ;pins.c: 32:                  break;
-[e $U 853  ]
-"33
-[; ;pins.c: 33:             }
-}
-[e $U 861  ]
-"34
-[; ;pins.c: 34:             else if (i >= 24 && i <= 31){
-[e :U 860 ]
-[e $ ! && >= -> _i `i -> 24 `i <= -> _i `i -> 31 `i 862  ]
-{
-"35
-[; ;pins.c: 35:                 port = D;
-[e = _port . `E6013 3 ]
-"36
-[; ;pins.c: 36:                 bit_val = i-24;
-[e = _bit_val -> - -> _i `i -> 24 `i `uc ]
-"37
-[; ;pins.c: 37:                 break;
-[e $U 853  ]
-"38
-[; ;pins.c: 38:             }
-}
-[e $U 863  ]
-"39
-[; ;pins.c: 39:             else {
-[e :U 862 ]
-{
-"40
-[; ;pins.c: 40:                 port = E;
-[e = _port . `E6013 4 ]
-"41
-[; ;pins.c: 41:                 bit_val = i-32;
-[e = _bit_val -> - -> _i `i -> 32 `i `uc ]
-"42
-[; ;pins.c: 42:                 break;
-[e $U 853  ]
-"43
-[; ;pins.c: 43:             }
-}
-[e :U 863 ]
-[e :U 861 ]
-[e :U 859 ]
-[e :U 857 ]
-"44
-[; ;pins.c: 44:         }
+[; ;pins.c: 19:         }
 }
 [e :U 855 ]
-"45
-[; ;pins.c: 45:     }
+"20
+[; ;pins.c: 20:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 36 `i 852  ]
 [e :U 853 ]
 }
-"46
-[; ;pins.c: 46:  }
+"21
+[; ;pins.c: 21:     return i;
+[e ) _i ]
+[e $UE 851  ]
+"22
+[; ;pins.c: 22:  }
 [e :UE 851 ]
 }
+"24
+[; ;pins.c: 24: enum ports convertToPort(uint8_t i){
+[v _convertToPort `(E6026 ~T0 @X0 1 ef1`uc ]
+{
+[e :U _convertToPort ]
+[v _i `uc ~T0 @X0 1 r1 ]
+[f ]
+"25
+[; ;pins.c: 25:     if(i >= 0 && i <= 7) {
+[e $ ! && >= -> _i `i -> 0 `i <= -> _i `i -> 7 `i 857  ]
+{
+"26
+[; ;pins.c: 26:         return A;
+[e ) . `E6026 0 ]
+[e $UE 856  ]
+"27
+[; ;pins.c: 27:     }
+}
+[e $U 858  ]
+"28
+[; ;pins.c: 28:     else if (i >= 8 && i <= 15){
+[e :U 857 ]
+[e $ ! && >= -> _i `i -> 8 `i <= -> _i `i -> 15 `i 859  ]
+{
+"29
+[; ;pins.c: 29:         return B;
+[e ) . `E6026 1 ]
+[e $UE 856  ]
+"30
+[; ;pins.c: 30:     }
+}
+[e $U 860  ]
+"31
+[; ;pins.c: 31:     else if (i >= 16 && i <= 23){
+[e :U 859 ]
+[e $ ! && >= -> _i `i -> 16 `i <= -> _i `i -> 23 `i 861  ]
+{
+"32
+[; ;pins.c: 32:        return C;
+[e ) . `E6026 2 ]
+[e $UE 856  ]
+"33
+[; ;pins.c: 33:     }
+}
+[e $U 862  ]
+"34
+[; ;pins.c: 34:     else if (i >= 24 && i <= 31){
+[e :U 861 ]
+[e $ ! && >= -> _i `i -> 24 `i <= -> _i `i -> 31 `i 863  ]
+{
+"35
+[; ;pins.c: 35:         return D;
+[e ) . `E6026 3 ]
+[e $UE 856  ]
+"36
+[; ;pins.c: 36:     }
+}
+[e $U 864  ]
+"37
+[; ;pins.c: 37:     else {
+[e :U 863 ]
+{
+"38
+[; ;pins.c: 38:         return E;
+[e ) . `E6026 4 ]
+[e $UE 856  ]
+"39
+[; ;pins.c: 39:     }
+}
+[e :U 864 ]
+[e :U 862 ]
+[e :U 860 ]
+[e :U 858 ]
+"40
+[; ;pins.c: 40: }
+[e :UE 856 ]
+}
+"42
+[; ;pins.c: 42: uint8_t convertToBit(uint8_t i){
+[v _convertToBit `(uc ~T0 @X0 1 ef1`uc ]
+{
+[e :U _convertToBit ]
+[v _i `uc ~T0 @X0 1 r1 ]
+[f ]
+"43
+[; ;pins.c: 43:     if(i >= 0 && i <= 7) {
+[e $ ! && >= -> _i `i -> 0 `i <= -> _i `i -> 7 `i 866  ]
+{
+"44
+[; ;pins.c: 44:         return i;
+[e ) _i ]
+[e $UE 865  ]
+"45
+[; ;pins.c: 45:     }
+}
+[e $U 867  ]
+"46
+[; ;pins.c: 46:     else if (i >= 8 && i <= 15){
+[e :U 866 ]
+[e $ ! && >= -> _i `i -> 8 `i <= -> _i `i -> 15 `i 868  ]
+{
+"47
+[; ;pins.c: 47:         return i-8;
+[e ) -> - -> _i `i -> 8 `i `uc ]
+[e $UE 865  ]
 "48
-[; ;pins.c: 48:  void pinMode(uint8_t pin, uint8_t mode){
+[; ;pins.c: 48:     }
+}
+[e $U 869  ]
+"49
+[; ;pins.c: 49:     else if (i >= 16 && i <= 23){
+[e :U 868 ]
+[e $ ! && >= -> _i `i -> 16 `i <= -> _i `i -> 23 `i 870  ]
+{
+"50
+[; ;pins.c: 50:         return i-16;
+[e ) -> - -> _i `i -> 16 `i `uc ]
+[e $UE 865  ]
+"51
+[; ;pins.c: 51:     }
+}
+[e $U 871  ]
+"52
+[; ;pins.c: 52:     else if (i >= 24 && i <= 31){
+[e :U 870 ]
+[e $ ! && >= -> _i `i -> 24 `i <= -> _i `i -> 31 `i 872  ]
+{
+"53
+[; ;pins.c: 53:         return i-24;
+[e ) -> - -> _i `i -> 24 `i `uc ]
+[e $UE 865  ]
+"54
+[; ;pins.c: 54:     }
+}
+[e $U 873  ]
+"55
+[; ;pins.c: 55:     else {
+[e :U 872 ]
+{
+"56
+[; ;pins.c: 56:         return i-32;
+[e ) -> - -> _i `i -> 32 `i `uc ]
+[e $UE 865  ]
+"57
+[; ;pins.c: 57:     }
+}
+[e :U 873 ]
+[e :U 871 ]
+[e :U 869 ]
+[e :U 867 ]
+"58
+[; ;pins.c: 58: }
+[e :UE 865 ]
+}
+"60
+[; ;pins.c: 60:  void pinMode(uint8_t pin, uint8_t mode){
 [v _pinMode `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _pinMode ]
 [v _pin `uc ~T0 @X0 1 r1 ]
 [v _mode `uc ~T0 @X0 1 r2 ]
 [f ]
-"49
-[; ;pins.c: 49:      if (pin == 11 ||
-[e $ ! || || || || || == -> _pin `i -> 11 `i == -> _pin `i -> 12 `i == -> _pin `i -> 31 `i == -> _pin `i -> 32 `i < -> _pin `i -> 1 `i > -> _pin `i -> 40 `i 865  ]
-"54
-[; ;pins.c: 54:              pin > 40) return;
-[e $UE 864  ]
-[e :U 865 ]
-"55
-[; ;pins.c: 55:      if(mode != ANALOG_INPUT && mode != INPUT && mode != OUTPUT) return;
-[e $ ! && && != -> _mode `i -> . `E6009 0 `i != -> _mode `i -> . `E6009 1 `i != -> _mode `i -> . `E6009 2 `i 866  ]
-[e $UE 864  ]
-[e :U 866 ]
-"57
-[; ;pins.c: 57:      pinToPort(pin);
-[e ( _pinToPort (1 _pin ]
-"58
-[; ;pins.c: 58:      if(mode == ANALOG_INPUT){
-[e $ ! == -> _mode `i -> . `E6009 0 `i 867  ]
-{
-"59
-[; ;pins.c: 59:          switch(port) {
-[e $U 869  ]
-{
-"60
-[; ;pins.c: 60:              case A:
-[e :U 870 ]
 "61
-[; ;pins.c: 61:                 TRISA = bitValue(bit_val);
-[e = _TRISA ( _bitValue (1 _bit_val ]
-"62
-[; ;pins.c: 62:                 ANSELA = 1;
-[e = _ANSELA -> -> 1 `i `uc ]
-"63
-[; ;pins.c: 63:                 break;
-[e $U 868  ]
-"64
-[; ;pins.c: 64:              case B :
-[e :U 871 ]
-"65
-[; ;pins.c: 65:                 TRISB = bitValue(bit_val);
-[e = _TRISB ( _bitValue (1 _bit_val ]
+[; ;pins.c: 61:      if (pin == 11 ||
+[e $ ! || || || || || == -> _pin `i -> 11 `i == -> _pin `i -> 12 `i == -> _pin `i -> 31 `i == -> _pin `i -> 32 `i < -> _pin `i -> 1 `i > -> _pin `i -> 40 `i 875  ]
 "66
-[; ;pins.c: 66:                 ANSELB = 1;
-[e = _ANSELB -> -> 1 `i `uc ]
-"67
-[; ;pins.c: 67:                 break;
-[e $U 868  ]
-"68
-[; ;pins.c: 68:              case C:
-[e :U 872 ]
-"69
-[; ;pins.c: 69:                  TRISC = bitValue(bit_val);
-[e = _TRISC ( _bitValue (1 _bit_val ]
-"70
-[; ;pins.c: 70:                  ANSELC = 1;
-[e = _ANSELC -> -> 1 `i `uc ]
-"71
-[; ;pins.c: 71:                  break;
-[e $U 868  ]
-"72
-[; ;pins.c: 72:              case D:
-[e :U 873 ]
-"73
-[; ;pins.c: 73:                  TRISD = bitValue(bit_val);
-[e = _TRISD ( _bitValue (1 _bit_val ]
-"74
-[; ;pins.c: 74:                  ANSELD = 1;
-[e = _ANSELD -> -> 1 `i `uc ]
-"75
-[; ;pins.c: 75:                  break;
-[e $U 868  ]
-"76
-[; ;pins.c: 76:              case E:
-[e :U 874 ]
-"77
-[; ;pins.c: 77:                  TRISE = bitValue(bit_val);
-[e = _TRISE ( _bitValue (1 _bit_val ]
-"78
-[; ;pins.c: 78:                  ANSELE = 1;
-[e = _ANSELE -> -> 1 `i `uc ]
-"79
-[; ;pins.c: 79:                  break;
-[e $U 868  ]
-"80
-[; ;pins.c: 80:              default:
+[; ;pins.c: 66:              pin > 40) return;
+[e $UE 874  ]
 [e :U 875 ]
-"81
-[; ;pins.c: 81:                  break;
-[e $U 868  ]
-"82
-[; ;pins.c: 82:          }
-}
-[e $U 868  ]
-[e :U 869 ]
-[e [\ -> _port `ui , $ -> . `E6013 0 `ui 870
- , $ -> . `E6013 1 `ui 871
- , $ -> . `E6013 2 `ui 872
- , $ -> . `E6013 3 `ui 873
- , $ -> . `E6013 4 `ui 874
- 875 ]
-[e :U 868 ]
-"83
-[; ;pins.c: 83:      }
-}
-[e $U 876  ]
-"84
-[; ;pins.c: 84:      else if(mode == INPUT){
-[e :U 867 ]
-[e $ ! == -> _mode `i -> . `E6009 1 `i 877  ]
+"67
+[; ;pins.c: 67:      if(mode != ANALOG_INPUT && mode != INPUT && mode != INPUT_PULLUP && mode != OUTPUT) return;
+[e $ ! && && && != -> _mode `i -> . `E6021 0 `i != -> _mode `i -> . `E6021 1 `i != -> _mode `i -> . `E6021 2 `i != -> _mode `i -> . `E6021 3 `i 876  ]
+[e $UE 874  ]
+[e :U 876 ]
+"69
+[; ;pins.c: 69:      uint8_t port_num = pinToIndex(pin);
+[v _port_num `uc ~T0 @X0 1 a ]
+[e = _port_num ( _pinToIndex (1 _pin ]
+"70
+[; ;pins.c: 70:      enum ports port = convertToPort(port_num);
+[v _port `E6026 ~T0 @X0 1 a ]
+[e = _port ( _convertToPort (1 _port_num ]
+"71
+[; ;pins.c: 71:      uint8_t bit_val = convertToBit(port_num);
+[v _bit_val `uc ~T0 @X0 1 a ]
+[e = _bit_val ( _convertToBit (1 _port_num ]
+"73
+[; ;pins.c: 73:      if(mode == ANALOG_INPUT){
+[e $ ! == -> _mode `i -> . `E6021 0 `i 877  ]
 {
-"85
-[; ;pins.c: 85:          switch(port) {
+"74
+[; ;pins.c: 74:          switch(port) {
 [e $U 879  ]
 {
-"86
-[; ;pins.c: 86:              case A:
+"75
+[; ;pins.c: 75:              case A:
 [e :U 880 ]
-"87
-[; ;pins.c: 87:                 TRISA = bitValue(bit_val);
-[e = _TRISA ( _bitValue (1 _bit_val ]
-"88
-[; ;pins.c: 88:                 ANSELA = 0;
-[e = _ANSELA -> -> 0 `i `uc ]
-"89
-[; ;pins.c: 89:                 break;
+"76
+[; ;pins.c: 76:                  setBit(&TRISA, bit_val);
+[e ( _setBit (2 , &U _TRISA _bit_val ]
+"77
+[; ;pins.c: 77:                  setBit(&ANSELA, bit_val);
+[e ( _setBit (2 , &U _ANSELA _bit_val ]
+"78
+[; ;pins.c: 78:                  break;
 [e $U 878  ]
-"90
-[; ;pins.c: 90:              case B :
+"79
+[; ;pins.c: 79:              case B :
 [e :U 881 ]
-"91
-[; ;pins.c: 91:                 TRISB = bitValue(bit_val);
-[e = _TRISB ( _bitValue (1 _bit_val ]
-"92
-[; ;pins.c: 92:                 ANSELB = 0;
-[e = _ANSELB -> -> 0 `i `uc ]
-"93
-[; ;pins.c: 93:                 break;
+"80
+[; ;pins.c: 80:                  setBit(&TRISB, bit_val);
+[e ( _setBit (2 , &U _TRISB _bit_val ]
+"81
+[; ;pins.c: 81:                  setBit(&ANSELB, bit_val);
+[e ( _setBit (2 , &U _ANSELB _bit_val ]
+"82
+[; ;pins.c: 82:                  break;
 [e $U 878  ]
-"94
-[; ;pins.c: 94:              case C:
+"83
+[; ;pins.c: 83:              case C:
 [e :U 882 ]
-"95
-[; ;pins.c: 95:                  TRISC = bitValue(bit_val);
-[e = _TRISC ( _bitValue (1 _bit_val ]
-"96
-[; ;pins.c: 96:                  ANSELC = 0;
-[e = _ANSELC -> -> 0 `i `uc ]
-"97
-[; ;pins.c: 97:                  break;
+"84
+[; ;pins.c: 84:                  setBit(&TRISC, bit_val);
+[e ( _setBit (2 , &U _TRISC _bit_val ]
+"85
+[; ;pins.c: 85:                  setBit(&ANSELC, bit_val);
+[e ( _setBit (2 , &U _ANSELC _bit_val ]
+"86
+[; ;pins.c: 86:                  break;
 [e $U 878  ]
-"98
-[; ;pins.c: 98:              case D:
+"87
+[; ;pins.c: 87:              case D:
 [e :U 883 ]
-"99
-[; ;pins.c: 99:                  TRISD = bitValue(bit_val);
-[e = _TRISD ( _bitValue (1 _bit_val ]
-"100
-[; ;pins.c: 100:                  ANSELD = 0;
-[e = _ANSELD -> -> 0 `i `uc ]
-"101
-[; ;pins.c: 101:                  break;
+"88
+[; ;pins.c: 88:                  setBit(&TRISD, bit_val);
+[e ( _setBit (2 , &U _TRISD _bit_val ]
+"89
+[; ;pins.c: 89:                  setBit(&ANSELD, bit_val);
+[e ( _setBit (2 , &U _ANSELD _bit_val ]
+"90
+[; ;pins.c: 90:                  break;
 [e $U 878  ]
-"102
-[; ;pins.c: 102:              case E:
+"91
+[; ;pins.c: 91:              case E:
 [e :U 884 ]
-"103
-[; ;pins.c: 103:                  TRISE = bitValue(bit_val);
-[e = _TRISE ( _bitValue (1 _bit_val ]
-"104
-[; ;pins.c: 104:                  ANSELE = 0;
-[e = _ANSELE -> -> 0 `i `uc ]
-"105
-[; ;pins.c: 105:                  break;
+"92
+[; ;pins.c: 92:                  setBit(&TRISE, bit_val);
+[e ( _setBit (2 , &U _TRISE _bit_val ]
+"93
+[; ;pins.c: 93:                  setBit(&ANSELE, bit_val);
+[e ( _setBit (2 , &U _ANSELE _bit_val ]
+"94
+[; ;pins.c: 94:                  break;
 [e $U 878  ]
-"106
-[; ;pins.c: 106:              default:
+"95
+[; ;pins.c: 95:              default:
 [e :U 885 ]
-"107
-[; ;pins.c: 107:                  break;
+"96
+[; ;pins.c: 96:                  break;
 [e $U 878  ]
-"108
-[; ;pins.c: 108:          }
+"97
+[; ;pins.c: 97:          }
 }
 [e $U 878  ]
 [e :U 879 ]
-[e [\ -> _port `ui , $ -> . `E6013 0 `ui 880
- , $ -> . `E6013 1 `ui 881
- , $ -> . `E6013 2 `ui 882
- , $ -> . `E6013 3 `ui 883
- , $ -> . `E6013 4 `ui 884
+[e [\ -> _port `ui , $ -> . `E6026 0 `ui 880
+ , $ -> . `E6026 1 `ui 881
+ , $ -> . `E6026 2 `ui 882
+ , $ -> . `E6026 3 `ui 883
+ , $ -> . `E6026 4 `ui 884
  885 ]
 [e :U 878 ]
-"109
-[; ;pins.c: 109:      }
+"98
+[; ;pins.c: 98:      }
 }
 [e $U 886  ]
-"110
-[; ;pins.c: 110:      else {
+"99
+[; ;pins.c: 99:      else if(mode == INPUT){
 [e :U 877 ]
+[e $ ! == -> _mode `i -> . `E6021 1 `i 887  ]
 {
-"111
-[; ;pins.c: 111:          switch(port) {
-[e $U 888  ]
+"100
+[; ;pins.c: 100:          switch(port) {
+[e $U 889  ]
 {
-"112
-[; ;pins.c: 112:              case A:
-[e :U 889 ]
-"113
-[; ;pins.c: 113:                 TRISA = ~bitValue(bit_val);
-[e = _TRISA -> ~ -> ( _bitValue (1 _bit_val `i `uc ]
-"114
-[; ;pins.c: 114:                 ANSELA = 0;
-[e = _ANSELA -> -> 0 `i `uc ]
-"115
-[; ;pins.c: 115:                 break;
-[e $U 887  ]
-"116
-[; ;pins.c: 116:              case B :
+"101
+[; ;pins.c: 101:              case A:
 [e :U 890 ]
-"117
-[; ;pins.c: 117:                 TRISB = ~bitValue(bit_val);
-[e = _TRISB -> ~ -> ( _bitValue (1 _bit_val `i `uc ]
-"118
-[; ;pins.c: 118:                 ANSELB = 0;
-[e = _ANSELB -> -> 0 `i `uc ]
-"119
-[; ;pins.c: 119:                 break;
-[e $U 887  ]
-"120
-[; ;pins.c: 120:              case C:
+"102
+[; ;pins.c: 102:                  setBit(&TRISA, bit_val);
+[e ( _setBit (2 , &U _TRISA _bit_val ]
+"103
+[; ;pins.c: 103:                  clearBit(&LATA, bit_val);
+[e ( _clearBit (2 , &U _LATA _bit_val ]
+"104
+[; ;pins.c: 104:                  clearBit(&ANSELA, bit_val);
+[e ( _clearBit (2 , &U _ANSELA _bit_val ]
+"105
+[; ;pins.c: 105:                  break;
+[e $U 888  ]
+"106
+[; ;pins.c: 106:              case B :
 [e :U 891 ]
-"121
-[; ;pins.c: 121:                  TRISC = ~bitValue(bit_val);
-[e = _TRISC -> ~ -> ( _bitValue (1 _bit_val `i `uc ]
-"122
-[; ;pins.c: 122:                  ANSELC = 0;
-[e = _ANSELC -> -> 0 `i `uc ]
-"123
-[; ;pins.c: 123:                  break;
-[e $U 887  ]
-"124
-[; ;pins.c: 124:              case D:
+"107
+[; ;pins.c: 107:                  setBit(&TRISB, bit_val);
+[e ( _setBit (2 , &U _TRISB _bit_val ]
+"108
+[; ;pins.c: 108:                  clearBit(&LATB, bit_val);
+[e ( _clearBit (2 , &U _LATB _bit_val ]
+"109
+[; ;pins.c: 109:                  clearBit(&ANSELB, bit_val);
+[e ( _clearBit (2 , &U _ANSELB _bit_val ]
+"110
+[; ;pins.c: 110:                  break;
+[e $U 888  ]
+"111
+[; ;pins.c: 111:              case C:
 [e :U 892 ]
+"112
+[; ;pins.c: 112:                  setBit(&TRISC, bit_val);
+[e ( _setBit (2 , &U _TRISC _bit_val ]
+"113
+[; ;pins.c: 113:                  clearBit(&LATC, bit_val);
+[e ( _clearBit (2 , &U _LATC _bit_val ]
+"114
+[; ;pins.c: 114:                  clearBit(&ANSELC, bit_val);
+[e ( _clearBit (2 , &U _ANSELC _bit_val ]
+"115
+[; ;pins.c: 115:                  break;
+[e $U 888  ]
+"116
+[; ;pins.c: 116:              case D:
+[e :U 893 ]
+"117
+[; ;pins.c: 117:                  setBit(&TRISD, bit_val);
+[e ( _setBit (2 , &U _TRISD _bit_val ]
+"118
+[; ;pins.c: 118:                  clearBit(&LATD, bit_val);
+[e ( _clearBit (2 , &U _LATD _bit_val ]
+"119
+[; ;pins.c: 119:                  clearBit(&ANSELD, bit_val);
+[e ( _clearBit (2 , &U _ANSELD _bit_val ]
+"120
+[; ;pins.c: 120:                  break;
+[e $U 888  ]
+"121
+[; ;pins.c: 121:              case E:
+[e :U 894 ]
+"122
+[; ;pins.c: 122:                  setBit(&TRISE, bit_val);
+[e ( _setBit (2 , &U _TRISE _bit_val ]
+"123
+[; ;pins.c: 123:                  clearBit(&LATE, bit_val);
+[e ( _clearBit (2 , &U _LATE _bit_val ]
+"124
+[; ;pins.c: 124:                  clearBit(&ANSELE, bit_val);
+[e ( _clearBit (2 , &U _ANSELE _bit_val ]
 "125
-[; ;pins.c: 125:                  TRISD = ~bitValue(bit_val);
-[e = _TRISD -> ~ -> ( _bitValue (1 _bit_val `i `uc ]
+[; ;pins.c: 125:                  break;
+[e $U 888  ]
 "126
-[; ;pins.c: 126:                  ANSELD = 0;
-[e = _ANSELD -> -> 0 `i `uc ]
+[; ;pins.c: 126:              default:
+[e :U 895 ]
 "127
 [; ;pins.c: 127:                  break;
-[e $U 887  ]
+[e $U 888  ]
 "128
-[; ;pins.c: 128:              case E:
-[e :U 893 ]
-"129
-[; ;pins.c: 129:                  TRISE = ~bitValue(bit_val);
-[e = _TRISE -> ~ -> ( _bitValue (1 _bit_val `i `uc ]
-"130
-[; ;pins.c: 130:                  ANSELE = 0;
-[e = _ANSELE -> -> 0 `i `uc ]
-"131
-[; ;pins.c: 131:                  break;
-[e $U 887  ]
-"132
-[; ;pins.c: 132:              default:
-[e :U 894 ]
-"133
-[; ;pins.c: 133:                  break;
-[e $U 887  ]
-"134
-[; ;pins.c: 134:          }
+[; ;pins.c: 128:          }
 }
-[e $U 887  ]
+[e $U 888  ]
+[e :U 889 ]
+[e [\ -> _port `ui , $ -> . `E6026 0 `ui 890
+ , $ -> . `E6026 1 `ui 891
+ , $ -> . `E6026 2 `ui 892
+ , $ -> . `E6026 3 `ui 893
+ , $ -> . `E6026 4 `ui 894
+ 895 ]
 [e :U 888 ]
-[e [\ -> _port `ui , $ -> . `E6013 0 `ui 889
- , $ -> . `E6013 1 `ui 890
- , $ -> . `E6013 2 `ui 891
- , $ -> . `E6013 3 `ui 892
- , $ -> . `E6013 4 `ui 893
- 894 ]
-[e :U 887 ]
-"135
-[; ;pins.c: 135:      }
+"129
+[; ;pins.c: 129:      }
 }
-[e :U 886 ]
-[e :U 876 ]
+[e $U 896  ]
+"130
+[; ;pins.c: 130:      else if(mode == INPUT_PULLUP){
+[e :U 887 ]
+[e $ ! == -> _mode `i -> . `E6021 2 `i 897  ]
+{
+"131
+[; ;pins.c: 131:          switch(port) {
+[e $U 899  ]
+{
+"132
+[; ;pins.c: 132:              case A:
+[e :U 900 ]
+"133
+[; ;pins.c: 133:                  setBit(&TRISA, bit_val);
+[e ( _setBit (2 , &U _TRISA _bit_val ]
+"134
+[; ;pins.c: 134:                  setBit(&LATA, bit_val);
+[e ( _setBit (2 , &U _LATA _bit_val ]
+"135
+[; ;pins.c: 135:                  clearBit(&ANSELA, bit_val);
+[e ( _clearBit (2 , &U _ANSELA _bit_val ]
 "136
-[; ;pins.c: 136:  }
-[e :UE 864 ]
+[; ;pins.c: 136:                  break;
+[e $U 898  ]
+"137
+[; ;pins.c: 137:              case B :
+[e :U 901 ]
+"138
+[; ;pins.c: 138:                  setBit(&TRISB, bit_val);
+[e ( _setBit (2 , &U _TRISB _bit_val ]
+"139
+[; ;pins.c: 139:                  setBit(&LATB, bit_val);
+[e ( _setBit (2 , &U _LATB _bit_val ]
+"140
+[; ;pins.c: 140:                  clearBit(&ANSELB, bit_val);
+[e ( _clearBit (2 , &U _ANSELB _bit_val ]
+"141
+[; ;pins.c: 141:                  break;
+[e $U 898  ]
+"142
+[; ;pins.c: 142:              case C:
+[e :U 902 ]
+"143
+[; ;pins.c: 143:                  setBit(&TRISC, bit_val);
+[e ( _setBit (2 , &U _TRISC _bit_val ]
+"144
+[; ;pins.c: 144:                  setBit(&LATC, bit_val);
+[e ( _setBit (2 , &U _LATC _bit_val ]
+"145
+[; ;pins.c: 145:                  clearBit(&ANSELC, bit_val);
+[e ( _clearBit (2 , &U _ANSELC _bit_val ]
+"146
+[; ;pins.c: 146:                  break;
+[e $U 898  ]
+"147
+[; ;pins.c: 147:              case D:
+[e :U 903 ]
+"148
+[; ;pins.c: 148:                  setBit(&TRISD, bit_val);
+[e ( _setBit (2 , &U _TRISD _bit_val ]
+"149
+[; ;pins.c: 149:                  setBit(&LATD, bit_val);
+[e ( _setBit (2 , &U _LATD _bit_val ]
+"150
+[; ;pins.c: 150:                  clearBit(&ANSELD, bit_val);
+[e ( _clearBit (2 , &U _ANSELD _bit_val ]
+"151
+[; ;pins.c: 151:                  break;
+[e $U 898  ]
+"152
+[; ;pins.c: 152:              case E:
+[e :U 904 ]
+"153
+[; ;pins.c: 153:                  setBit(&TRISE, bit_val);
+[e ( _setBit (2 , &U _TRISE _bit_val ]
+"154
+[; ;pins.c: 154:                  setBit(&LATE, bit_val);
+[e ( _setBit (2 , &U _LATE _bit_val ]
+"155
+[; ;pins.c: 155:                  clearBit(&ANSELE, bit_val);
+[e ( _clearBit (2 , &U _ANSELE _bit_val ]
+"156
+[; ;pins.c: 156:                  break;
+[e $U 898  ]
+"157
+[; ;pins.c: 157:              default:
+[e :U 905 ]
+"158
+[; ;pins.c: 158:                  break;
+[e $U 898  ]
+"159
+[; ;pins.c: 159:          }
+}
+[e $U 898  ]
+[e :U 899 ]
+[e [\ -> _port `ui , $ -> . `E6026 0 `ui 900
+ , $ -> . `E6026 1 `ui 901
+ , $ -> . `E6026 2 `ui 902
+ , $ -> . `E6026 3 `ui 903
+ , $ -> . `E6026 4 `ui 904
+ 905 ]
+[e :U 898 ]
+"160
+[; ;pins.c: 160:      }
+}
+[e $U 906  ]
+"161
+[; ;pins.c: 161:      else {
+[e :U 897 ]
+{
+"162
+[; ;pins.c: 162:          switch(port) {
+[e $U 908  ]
+{
+"163
+[; ;pins.c: 163:              case A:
+[e :U 909 ]
+"164
+[; ;pins.c: 164:                  clearBit(&TRISA, bit_val);
+[e ( _clearBit (2 , &U _TRISA _bit_val ]
+"165
+[; ;pins.c: 165:                  clearBit(&ANSELA, bit_val);
+[e ( _clearBit (2 , &U _ANSELA _bit_val ]
+"166
+[; ;pins.c: 166:                  break;
+[e $U 907  ]
+"167
+[; ;pins.c: 167:              case B :
+[e :U 910 ]
+"168
+[; ;pins.c: 168:                  clearBit(&TRISB, bit_val);
+[e ( _clearBit (2 , &U _TRISB _bit_val ]
+"169
+[; ;pins.c: 169:                  clearBit(&ANSELB, bit_val);
+[e ( _clearBit (2 , &U _ANSELB _bit_val ]
+"170
+[; ;pins.c: 170:                  break;
+[e $U 907  ]
+"171
+[; ;pins.c: 171:              case C:
+[e :U 911 ]
+"172
+[; ;pins.c: 172:                  clearBit(&TRISC, bit_val);
+[e ( _clearBit (2 , &U _TRISC _bit_val ]
+"173
+[; ;pins.c: 173:                  clearBit(&ANSELC, bit_val);
+[e ( _clearBit (2 , &U _ANSELC _bit_val ]
+"174
+[; ;pins.c: 174:                  break;
+[e $U 907  ]
+"175
+[; ;pins.c: 175:              case D:
+[e :U 912 ]
+"176
+[; ;pins.c: 176:                  clearBit(&TRISD, bit_val);
+[e ( _clearBit (2 , &U _TRISD _bit_val ]
+"177
+[; ;pins.c: 177:                  clearBit(&ANSELD, bit_val);
+[e ( _clearBit (2 , &U _ANSELD _bit_val ]
+"178
+[; ;pins.c: 178:                  break;
+[e $U 907  ]
+"179
+[; ;pins.c: 179:              case E:
+[e :U 913 ]
+"180
+[; ;pins.c: 180:                  clearBit(&TRISA, bit_val);
+[e ( _clearBit (2 , &U _TRISA _bit_val ]
+"181
+[; ;pins.c: 181:                  clearBit(&ANSELE, bit_val);
+[e ( _clearBit (2 , &U _ANSELE _bit_val ]
+"182
+[; ;pins.c: 182:                  break;
+[e $U 907  ]
+"183
+[; ;pins.c: 183:              default:
+[e :U 914 ]
+"184
+[; ;pins.c: 184:                  break;
+[e $U 907  ]
+"185
+[; ;pins.c: 185:          }
+}
+[e $U 907  ]
+[e :U 908 ]
+[e [\ -> _port `ui , $ -> . `E6026 0 `ui 909
+ , $ -> . `E6026 1 `ui 910
+ , $ -> . `E6026 2 `ui 911
+ , $ -> . `E6026 3 `ui 912
+ , $ -> . `E6026 4 `ui 913
+ 914 ]
+[e :U 907 ]
+"186
+[; ;pins.c: 186:      }
+}
+[e :U 906 ]
+[e :U 896 ]
+[e :U 886 ]
+"187
+[; ;pins.c: 187:  }
+[e :UE 874 ]
+}
+"189
+[; ;pins.c: 189:  enum values digitalRead(uint8_t pin){
+[v _digitalRead `(E6032 ~T0 @X0 1 ef1`uc ]
+{
+[e :U _digitalRead ]
+[v _pin `uc ~T0 @X0 1 r1 ]
+[f ]
+"190
+[; ;pins.c: 190:      uint8_t port_num = pinToIndex(pin);
+[v _port_num `uc ~T0 @X0 1 a ]
+[e = _port_num ( _pinToIndex (1 _pin ]
+"191
+[; ;pins.c: 191:      enum ports port = convertToPort(port_num);
+[v _port `E6026 ~T0 @X0 1 a ]
+[e = _port ( _convertToPort (1 _port_num ]
+"192
+[; ;pins.c: 192:      uint8_t bit_val = convertToBit(port_num);
+[v _bit_val `uc ~T0 @X0 1 a ]
+[e = _bit_val ( _convertToBit (1 _port_num ]
+"193
+[; ;pins.c: 193:      enum values value;
+[v _value `E6032 ~T0 @X0 1 a ]
+"195
+[; ;pins.c: 195:      switch(port) {
+[e $U 917  ]
+{
+"196
+[; ;pins.c: 196:          case A:
+[e :U 918 ]
+"197
+[; ;pins.c: 197:              value = readBit(&PORTA, bit_val);
+[e = _value -> ( _readBit (2 , &U _PORTA _bit_val `E6032 ]
+"198
+[; ;pins.c: 198:              break;
+[e $U 916  ]
+"199
+[; ;pins.c: 199:          case B :
+[e :U 919 ]
+"200
+[; ;pins.c: 200:              value = readBit(&PORTB, bit_val);
+[e = _value -> ( _readBit (2 , &U _PORTB _bit_val `E6032 ]
+"201
+[; ;pins.c: 201:              break;
+[e $U 916  ]
+"202
+[; ;pins.c: 202:          case C:
+[e :U 920 ]
+"203
+[; ;pins.c: 203:              value = readBit(&PORTC, bit_val);
+[e = _value -> ( _readBit (2 , &U _PORTC _bit_val `E6032 ]
+"204
+[; ;pins.c: 204:              break;
+[e $U 916  ]
+"205
+[; ;pins.c: 205:          case D:
+[e :U 921 ]
+"206
+[; ;pins.c: 206:              value = readBit(&PORTD, bit_val);
+[e = _value -> ( _readBit (2 , &U _PORTD _bit_val `E6032 ]
+"207
+[; ;pins.c: 207:              break;
+[e $U 916  ]
+"208
+[; ;pins.c: 208:          case E:
+[e :U 922 ]
+"209
+[; ;pins.c: 209:              value = readBit(&PORTE, bit_val);
+[e = _value -> ( _readBit (2 , &U _PORTE _bit_val `E6032 ]
+"210
+[; ;pins.c: 210:              break;
+[e $U 916  ]
+"211
+[; ;pins.c: 211:          default:
+[e :U 923 ]
+"212
+[; ;pins.c: 212:              break;
+[e $U 916  ]
+"213
+[; ;pins.c: 213:          }
+}
+[e $U 916  ]
+[e :U 917 ]
+[e [\ -> _port `ui , $ -> . `E6026 0 `ui 918
+ , $ -> . `E6026 1 `ui 919
+ , $ -> . `E6026 2 `ui 920
+ , $ -> . `E6026 3 `ui 921
+ , $ -> . `E6026 4 `ui 922
+ 923 ]
+[e :U 916 ]
+"214
+[; ;pins.c: 214:      return value;
+[e ) _value ]
+[e $UE 915  ]
+"215
+[; ;pins.c: 215:  }
+[e :UE 915 ]
 }
