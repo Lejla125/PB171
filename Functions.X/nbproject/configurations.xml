@@ -17,6 +17,8 @@
       <itemPath>fun.c</itemPath>
       <itemPath>pins.h</itemPath>
       <itemPath>pins.c</itemPath>
+      <itemPath>mydelays.h</itemPath>
+      <itemPath>mydelays.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

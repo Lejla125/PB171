@@ -16,6 +16,8 @@ enum values {LOW = 0, HIGH = 1};
 
 void pinMode(uint8_t pin, uint8_t mode);
 enum values digitalRead(uint8_t pin);
+void digitalWrite(uint8_t pin, enum values value);
+uint16_t analogRead(uint8_t pin);
 
 #endif	/* PINS_H */
 

@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <xc.h>
 #include "mylib.h"
+#include <stdbool.h>
 
 enum mode {ANALOG_INPUT = 0, INPUT = 1, INPUT_PULLUP = 2, OUTPUT = 3};
 enum ports {A, B, C, D, E};
@@ -212,4 +213,80 @@ uint8_t convertToBit(uint8_t i){
              break;
          }
      return value;
+ }
+ 
+ bool isAnalog(enum ports port, uint8_t bit_val){
+     bool configuration;
+     switch(port) {
+         case A:
+             configuration = readBit(&ANSELA, bit_val); 
+             break;
+         case B :
+             configuration = readBit(&ANSELB, bit_val);
+             break;
+         case C:
+             configuration = readBit(&ANSELC, bit_val);
+             break;
+         case D:
+             configuration = readBit(&ANSELD, bit_val);
+             break;
+         case E:
+             configuration = readBit(&ANSELE, bit_val);
+             break;
+         default:
+             break;
+         }
+     return configuration;
+ }
+ 
+ void digitalWrite(uint8_t pin, enum values value){
+     uint8_t port_num = pinToIndex(pin);
+     enum ports port = convertToPort(port_num);
+     uint8_t bit_val = convertToBit(port_num);
+     
+     if(isAnalog(port, bit_val)) return; //check whether pin is ANALOG_INPUT
+     
+     switch(port) {
+         case A:
+             value ? setBit(&LATA, bit_val) : clearBit(&LATA, bit_val); 
+             break;
+         case B :
+             value ? setBit(&LATB, bit_val) : clearBit(&LATB, bit_val); 
+             break;
+         case C:
+             value ? setBit(&LATC, bit_val) : clearBit(&LATC, bit_val); 
+             break;
+         case D:
+             value ? setBit(&LATD, bit_val) : clearBit(&LATD, bit_val); 
+             break;
+         case E:
+             value ? setBit(&LATE, bit_val) : clearBit(&LATE, bit_val); 
+             break;
+         default:
+             break;
+         }
+     return;
+ }
+ 
+ uint16_t analogRead(uint8_t pin){
+     uint8_t port_num = pinToIndex(pin);
+     enum ports port = convertToPort(port_num);
+     uint8_t bit_val = convertToBit(port_num);
+     
+     if(!isAnalog(port, bit_val)) return 1024; //1024 faulty value for adc
+     
+     uint16_t reading;
+     uint16_t low_byte = ADRESL;
+     uint16_t high_byte = ADRESH;
+     
+     if(ADCON2bits.ADFM == 1){
+         high_byte = high_byte << 8;
+     }
+     else {
+         high_byte = high_byte << 2;
+         low_byte = low_byte >> 6;
+     }
+     reading = low_byte | high_byte;
+     
+     return reading;    
  }

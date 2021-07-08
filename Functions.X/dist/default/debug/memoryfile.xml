@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Functions.X.production.hex">
+  <executable name="dist/default/debug\Functions.X.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>16384</length>

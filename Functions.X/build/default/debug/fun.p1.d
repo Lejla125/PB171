@@ -1,4 +1,4 @@
-build/default/production/fun.p1:  \
+build/default/debug/fun.p1:  \
 fun.c  \
 mylib.h  \
 pins.h  \

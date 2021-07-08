@@ -3,15 +3,15 @@ Microchip MPLAB XC8 Compiler V2.32
 Linker command line:
 
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\Functions.X.production.sym \
-  --cmf=dist/default/production\Functions.X.production.cmf -z -Q18F44K22 \
-  -oC:\Users\lejla\AppData\Local\Temp\xcAs18c.4 --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/Functions.X.production.map -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ASTACK=0B1h-02FFh -pstack=STACK \
-  -ACODE=00h-03FFFh -ACONST=00h-03FFFh -ASMALLCONST=0300h-03FFhx61 \
-  -AMEDIUMCONST=0300h-03FFFh -ACOMRAM=01h-05Fh -AABS1=00h-02FFh \
-  -ABIGRAM=01h-02FFh -ARAM=060h-0FFh,0100h-01FFhx2 -ABANK0=060h-0FFh \
-  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ASFR=0F38h-0F5Fh,0F60h-0FFFh \
+  -h+dist/default/debug\Functions.X.debug.sym \
+  --cmf=dist/default/debug\Functions.X.debug.cmf -z -Q18F44K22 \
+  -oC:\Users\lejla\AppData\Local\Temp\xcAsf34.4 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/debug/Functions.X.debug.map -E1 -ver=XC8 Compiler \
+  --acfsm=1493 -ASTACK=0B1h-02FFh -pstack=STACK -ACODE=00h-03FFFh \
+  -ACONST=00h-03FFFh -ASMALLCONST=0300h-03FFhx61 -AMEDIUMCONST=0300h-03FFFh \
+  -ACOMRAM=01h-05Fh -AABS1=00h-02FFh -ABIGRAM=01h-02FFh \
+  -ARAM=060h-0FFh,0100h-01FFhx2 -ABANK0=060h-0FFh -ABANK1=0100h-01FFh \
+  -ABANK2=0200h-02FFh -ASFR=0F38h-0F5Fh,0F60h-0FFFh \
   -ACONFIG=0300000h-030000Dh -AIDLOC=0200000h-0200007h \
   -AEEDATA=0F00000h-0F000FFh -peeprom_data=EEDATA \
   -preset_vec=00h,intcode,intcodelo,powerup,init -pramtop=0300h \
@@ -21,8 +21,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\lejla\AppData\Local\Temp\xcAs18c.o \
-  dist/default/production\Functions.X.production.o 
+  C:\Users\lejla\AppData\Local\Temp\xcAsf34.o \
+  dist/default/debug\Functions.X.debug.o 
 
 Object code version is 3.11
 
@@ -31,11 +31,11 @@ Machine type is 18F44K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\lejla\AppData\Local\Temp\xcAs18c.o
+C:\Users\lejla\AppData\Local\Temp\xcAsf34.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0
-dist/default/production\Functions.X.production.o
+dist/default/debug\Functions.X.debug.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 smallconst                          300      300        A      180       0

@@ -7,7 +7,7 @@
   200008h - 2FFFFFh
   30000Eh - 30003Fh
   
- dist/default/production\Functions.X.production.hex ranges:
+ dist/default/debug\Functions.X.debug.hex ranges:
   0h - 3h
   300h - 308h
   30Ah - 1725h
@@ -25,7 +25,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/default/production\Functions.X.production.hex
+  1 = dist/default/debug\Functions.X.debug.hex
 00000000: 1111------------------------------------------------------------
 00000300: 111111111-111111111111111111111111111111111111111111111111111111
 00000340: 1111111111111111111111111111111111111111111111111111111111111111

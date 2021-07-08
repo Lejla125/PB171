@@ -430,9 +430,9 @@ cstackCOMRAM 1 5F COMRAM 1 1
 bssBANK0 60 B0 BANK0 60 1
 text13 30A 1725 CODE 30A 0
 %locals
-dist/default/production\Functions.X.production.o
+dist/default/debug\Functions.X.debug.o
 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
-C:\Users\lejla\AppData\Local\Temp\xcAs18c.s
+C:\Users\lejla\AppData\Local\Temp\xcAsf34.s
 1779 1542 0 CODE 0
 1781 1542 0 CODE 0
 1784 1542 0 CODE 0

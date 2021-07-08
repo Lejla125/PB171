@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "mylib.h"
 #include "pins.h"
+#include "mydelays.h"
 
 /*
  * 
@@ -26,6 +27,7 @@ int main(int argc, char** argv) {
     pinMode(33, OUTPUT);
     pinMode(15, INPUT);
     printf("%d", digitalRead(18));
+    delay(300);
     
     return (EXIT_SUCCESS);
 }
