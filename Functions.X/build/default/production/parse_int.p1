@@ -1,0 +1,252 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"15 ./buffer.h
+[; ;./buffer.h: 15: struct buffer {
+[s S1 `c -> 64 `i `uc 1 `uc 1 `uc 1 ]
+[n S1 buffer buf head tail size ]
+[v F85 `*CS1 ~T0 @X0 1 t ]
+[v F59 `*CS1 ~T0 @X0 1 t ]
+"33
+[; ;./buffer.h: 33: int8_t bufferGet(const struct buffer * const buffer, const uint8_t index);
+[v _bufferGet `(c ~T0 @X0 0 ef2`C*CS1`Cuc ]
+[v F55 `*CS1 ~T0 @X0 1 t ]
+"32
+[; ;./buffer.h: 32: uint8_t bufferSize(const struct buffer * const buffer);
+[v _bufferSize `(uc ~T0 @X0 0 ef1`C*CS1 ]
+[v F91 `*CS1 ~T0 @X0 1 t ]
+[v F98 `*S1 ~T0 @X0 1 t ]
+[v F103 `*S1 ~T0 @X0 1 t ]
+[v F47 `*S1 ~T0 @X0 1 t ]
+"30
+[; ;./buffer.h: 30: int8_t bufferLoad(struct buffer * const buffer);
+[v _bufferLoad `(c ~T0 @X0 0 ef1`C*S1 ]
+"3 parse_int.c
+[; ;parse_int.c: 3: int8_t getStartIndex(const struct buffer * const buffer) {
+[v _getStartIndex `(c ~T0 @X0 1 ef1`C*CS1 ]
+{
+[e :U _getStartIndex ]
+[v F87 `*CS1 ~T0 @X0 1 t ]
+[v _buffer `C*CS1 ~T0 @X0 1 r1 ]
+[f ]
+"4
+[; ;parse_int.c: 4:     for (int8_t i = 0; i < bufferSize(buffer); i++) {
+{
+[v _i `c ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `c ]
+[e $U 6  ]
+[e :U 3 ]
+{
+"5
+[; ;parse_int.c: 5:         const char c = bufferGet(buffer, i);
+[v _c `Cuc ~T0 @X0 1 a ]
+[e = _c -> ( _bufferGet (2 , _buffer -> _i `uc `uc ]
+"6
+[; ;parse_int.c: 6:         if (c >= '0' && c <= '9') {
+[e $ ! && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 7  ]
+{
+"7
+[; ;parse_int.c: 7:             return i;
+[e ) _i ]
+[e $UE 2  ]
+"8
+[; ;parse_int.c: 8:         }
+}
+[e :U 7 ]
+"9
+[; ;parse_int.c: 9:     }
+}
+[e ++ _i -> -> 1 `i `c ]
+[e :U 6 ]
+[e $ < -> _i `i -> ( _bufferSize (1 _buffer `i 3  ]
+[e :U 4 ]
+}
+"10
+[; ;parse_int.c: 10:     return -1;
+[e ) -> -U -> 1 `i `c ]
+[e $UE 2  ]
+"11
+[; ;parse_int.c: 11: }
+[e :UE 2 ]
+}
+"13
+[; ;parse_int.c: 13: int8_t getEndIndex(const struct buffer * const buffer, const int8_t start_index) {
+[v _getEndIndex `(c ~T0 @X0 1 ef2`C*CS1`Cc ]
+{
+[e :U _getEndIndex ]
+[v F93 `*CS1 ~T0 @X0 1 t ]
+[v _buffer `C*CS1 ~T0 @X0 1 r1 ]
+[v _start_index `Cc ~T0 @X0 1 r2 ]
+[f ]
+"14
+[; ;parse_int.c: 14:     if (start_index == -1) return -1;
+[e $ ! == -> _start_index `i -U -> 1 `i 9  ]
+[e ) -> -U -> 1 `i `c ]
+[e $UE 8  ]
+[e :U 9 ]
+"16
+[; ;parse_int.c: 16:     int8_t index = start_index + 1;
+[v _index `c ~T0 @X0 1 a ]
+[e = _index -> + -> _start_index `i -> 1 `i `c ]
+"17
+[; ;parse_int.c: 17:     char c;
+[v _c `uc ~T0 @X0 1 a ]
+"18
+[; ;parse_int.c: 18:     while (index < bufferSize(buffer)) {
+[e $U 10  ]
+[e :U 11 ]
+{
+"19
+[; ;parse_int.c: 19:         c = bufferGet(buffer, index);
+[e = _c -> ( _bufferGet (2 , _buffer -> _index `uc `uc ]
+"21
+[; ;parse_int.c: 21:         if (c >= '0' && c <= '9') index++;
+[e $ ! && >= -> _c `ui -> 48 `ui <= -> _c `ui -> 57 `ui 13  ]
+[e ++ _index -> -> 1 `i `c ]
+[e $U 14  ]
+"22
+[; ;parse_int.c: 22:         else break;
+[e :U 13 ]
+[e $U 12  ]
+[e :U 14 ]
+"23
+[; ;parse_int.c: 23:     }
+}
+[e :U 10 ]
+"18
+[; ;parse_int.c: 18:     while (index < bufferSize(buffer)) {
+[e $ < -> _index `i -> ( _bufferSize (1 _buffer `i 11  ]
+[e :U 12 ]
+"24
+[; ;parse_int.c: 24:     return index;
+[e ) _index ]
+[e $UE 8  ]
+"25
+[; ;parse_int.c: 25: }
+[e :UE 8 ]
+}
+"27
+[; ;parse_int.c: 27: int8_t isNegative(struct buffer * const buffer, const int8_t start_index) {
+[v _isNegative `(c ~T0 @X0 1 ef2`C*S1`Cc ]
+{
+[e :U _isNegative ]
+[v F100 `*S1 ~T0 @X0 1 t ]
+[v _buffer `C*S1 ~T0 @X0 1 r1 ]
+[v _start_index `Cc ~T0 @X0 1 r2 ]
+[f ]
+"28
+[; ;parse_int.c: 28:     if (start_index == 0) return 0;
+[e $ ! == -> _start_index `i -> 0 `i 16  ]
+[e ) -> -> 0 `i `c ]
+[e $UE 15  ]
+[e :U 16 ]
+"29
+[; ;parse_int.c: 29:     if (bufferGet(buffer, start_index - 1) == '-') return 1;
+[e $ ! == -> -> ( _bufferGet (2 , -> _buffer `*CS1 -> - -> _start_index `i -> 1 `i `uc `i `ui -> 45 `ui 17  ]
+[e ) -> -> 1 `i `c ]
+[e $UE 15  ]
+[e :U 17 ]
+"30
+[; ;parse_int.c: 30:     return 0;
+[e ) -> -> 0 `i `c ]
+[e $UE 15  ]
+"31
+[; ;parse_int.c: 31: }
+[e :UE 15 ]
+}
+"33
+[; ;parse_int.c: 33: int32_t parse_int(struct buffer * const buffer, int8_t start, const int8_t end, const int8_t negative) {
+[v _parse_int `(l ~T0 @X0 1 ef4`C*S1`c`Cc`Cc ]
+{
+[e :U _parse_int ]
+[v F105 `*S1 ~T0 @X0 1 t ]
+[v _buffer `C*S1 ~T0 @X0 1 r1 ]
+[v _start `c ~T0 @X0 1 r2 ]
+[v _end `Cc ~T0 @X0 1 r3 ]
+[v _negative `Cc ~T0 @X0 1 r4 ]
+[f ]
+"34
+[; ;parse_int.c: 34:     for (uint8_t i = 0; i < start; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 22  ]
+[e :U 19 ]
+{
+"35
+[; ;parse_int.c: 35:         bufferLoad(buffer);
+[e ( _bufferLoad (1 _buffer ]
+"36
+[; ;parse_int.c: 36:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 22 ]
+[e $ < -> _i `i -> _start `i 19  ]
+[e :U 20 ]
+}
+"37
+[; ;parse_int.c: 37:     while (start < end && bufferGet(buffer, start) == '0') {
+[e $U 23  ]
+[e :U 24 ]
+{
+"38
+[; ;parse_int.c: 38:         bufferLoad(buffer);
+[e ( _bufferLoad (1 _buffer ]
+"39
+[; ;parse_int.c: 39:         start++;
+[e ++ _start -> -> 1 `i `c ]
+"40
+[; ;parse_int.c: 40:     }
+}
+[e :U 23 ]
+"37
+[; ;parse_int.c: 37:     while (start < end && bufferGet(buffer, start) == '0') {
+[e $ && < -> _start `i -> _end `i == -> -> ( _bufferGet (2 , -> _buffer `*CS1 -> _start `uc `i `ui -> 48 `ui 24  ]
+[e :U 25 ]
+"41
+[; ;parse_int.c: 41:     if (start == end) {
+[e $ ! == -> _start `i -> _end `i 26  ]
+{
+"42
+[; ;parse_int.c: 42:         return 0;
+[e ) -> -> 0 `i `l ]
+[e $UE 18  ]
+"43
+[; ;parse_int.c: 43:     }
+}
+[e :U 26 ]
+"44
+[; ;parse_int.c: 44:     int32_t result = bufferLoad(buffer) - '0';
+[v _result `l ~T0 @X0 1 a ]
+[e = _result -> - -> -> ( _bufferLoad (1 _buffer `i `ui -> 48 `ui `l ]
+"45
+[; ;parse_int.c: 45:     start++;
+[e ++ _start -> -> 1 `i `c ]
+"46
+[; ;parse_int.c: 46:     while (start < end) {
+[e $U 27  ]
+[e :U 28 ]
+{
+"47
+[; ;parse_int.c: 47:         result *= 10;
+[e =* _result -> -> 10 `i `l ]
+"48
+[; ;parse_int.c: 48:         result += bufferLoad(buffer) - '0';
+[e =+ _result -> - -> -> ( _bufferLoad (1 _buffer `i `ui -> 48 `ui `l ]
+"49
+[; ;parse_int.c: 49:         start++;
+[e ++ _start -> -> 1 `i `c ]
+"50
+[; ;parse_int.c: 50:     }
+}
+[e :U 27 ]
+"46
+[; ;parse_int.c: 46:     while (start < end) {
+[e $ < -> _start `i -> _end `i 28  ]
+[e :U 29 ]
+"51
+[; ;parse_int.c: 51:     return negative ? -result : result;
+[e ) ? != -> _negative `i -> 0 `i : -U _result _result ]
+[e $UE 18  ]
+"52
+[; ;parse_int.c: 52: }
+[e :UE 18 ]
+}

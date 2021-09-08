@@ -1,0 +1,164 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F75 `(uc ~T0 @X0 1 tf1`uc ]
+"3 bits.c
+[; ;bits.c: 3: __attribute__((inline)) uint8_t bitValue(uint8_t b) {
+[v _bitValue `TF75 ~T0 @X0 1 e ]
+{
+[e :U _bitValue ]
+[v _b `uc ~T0 @X0 1 r1 ]
+[f ]
+"4
+[; ;bits.c: 4:     return 1 << b;
+[e ) -> << -> 1 `i -> _b `i `uc ]
+[e $UE 1  ]
+"5
+[; ;bits.c: 5: }
+[e :UE 1 ]
+}
+[v F78 `(v ~T0 @X0 1 tf2`*uc`uc ]
+"7
+[; ;bits.c: 7: __attribute__((inline)) void bitClear(uint8_t *number, uint8_t b) {
+[v _bitClear `TF78 ~T0 @X0 1 e ]
+{
+[e :U _bitClear ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"8
+[; ;bits.c: 8:     *number &= ~bitValue(b);
+[e =& *U _number -> ~ -> ( _bitValue (1 _b `i `uc ]
+"9
+[; ;bits.c: 9: }
+[e :UE 2 ]
+}
+[v F82 `(uc ~T0 @X0 1 tf2`uc`uc ]
+"11
+[; ;bits.c: 11: __attribute__((inline)) uint8_t bitRead(uint8_t number, uint8_t b) {
+[v _bitRead `TF82 ~T0 @X0 1 e ]
+{
+[e :U _bitRead ]
+[v _number `uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"12
+[; ;bits.c: 12:     return (number >> b) & 0x01;
+[e ) -> & >> -> _number `i -> _b `i -> 1 `i `uc ]
+[e $UE 3  ]
+"13
+[; ;bits.c: 13: }
+[e :UE 3 ]
+}
+[v F86 `(v ~T0 @X0 1 tf2`*uc`uc ]
+"15
+[; ;bits.c: 15: __attribute__((inline)) void bitSet(uint8_t *number, uint8_t b) {
+[v _bitSet `TF86 ~T0 @X0 1 e ]
+{
+[e :U _bitSet ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"16
+[; ;bits.c: 16:     *number |= bitValue(b);
+[e =| *U _number -> ( _bitValue (1 _b `uc ]
+"17
+[; ;bits.c: 17: }
+[e :UE 4 ]
+}
+[v F90 `(v ~T0 @X0 1 tf3`*uc`uc`uc ]
+"19
+[; ;bits.c: 19: __attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val) {
+[v _bitWrite `TF90 ~T0 @X0 1 e ]
+{
+[e :U _bitWrite ]
+[v _number `*uc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[v _val `uc ~T0 @X0 1 r3 ]
+[f ]
+"20
+[; ;bits.c: 20:     val ? bitSet(number, b) : bitClear(number, b);
+[e ? != -> _val `i -> 0 `i : ( _bitSet (2 , _number _b ( _bitClear (2 , _number _b ]
+"21
+[; ;bits.c: 21: }
+[e :UE 5 ]
+}
+[v F95 `(uc ~T0 @X0 1 tf1`i ]
+"23
+[; ;bits.c: 23: __attribute__((inline)) uint8_t lowByte(int number) {
+[v _lowByte `TF95 ~T0 @X0 1 e ]
+{
+[e :U _lowByte ]
+[v _number `i ~T0 @X0 1 r1 ]
+[f ]
+"24
+[; ;bits.c: 24:     return number & 0xFF;
+[e ) -> & _number -> 255 `i `uc ]
+[e $UE 6  ]
+"25
+[; ;bits.c: 25: }
+[e :UE 6 ]
+}
+[v F98 `(uc ~T0 @X0 1 tf1`i ]
+"27
+[; ;bits.c: 27: __attribute__((inline)) uint8_t highByte(int number) {
+[v _highByte `TF98 ~T0 @X0 1 e ]
+{
+[e :U _highByte ]
+[v _number `i ~T0 @X0 1 r1 ]
+[f ]
+"28
+[; ;bits.c: 28:     return (number >> 8) & 0xFF;
+[e ) -> & >> _number -> 8 `i -> 255 `i `uc ]
+[e $UE 7  ]
+"29
+[; ;bits.c: 29: }
+[e :UE 7 ]
+}
+[v F101 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"31
+[; ;bits.c: 31: __attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b) {
+[v _setBit `TF101 ~T0 @X0 1 e ]
+{
+[e :U _setBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"32
+[; ;bits.c: 32:     *p |= bitValue(b);
+[e =| *U _p -> ( _bitValue (1 _b `uc ]
+"33
+[; ;bits.c: 33: }
+[e :UE 8 ]
+}
+[v F105 `(v ~T0 @X0 1 tf2`*Vuc`uc ]
+"35
+[; ;bits.c: 35: __attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b) {
+[v _clearBit `TF105 ~T0 @X0 1 e ]
+{
+[e :U _clearBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"36
+[; ;bits.c: 36:     *p |= ~bitValue(b);
+[e =| *U _p -> ~ -> ( _bitValue (1 _b `i `uc ]
+"37
+[; ;bits.c: 37: }
+[e :UE 9 ]
+}
+[v F109 `(uc ~T0 @X0 1 tf2`*Vuc`uc ]
+"39
+[; ;bits.c: 39: __attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b) {
+[v _readBit `TF109 ~T0 @X0 1 e ]
+{
+[e :U _readBit ]
+[v _p `*Vuc ~T0 @X0 1 r1 ]
+[v _b `uc ~T0 @X0 1 r2 ]
+[f ]
+"40
+[; ;bits.c: 40:     return (*p >> b) & 0x01;
+[e ) -> & >> -> *U _p `i -> _b `i -> 1 `i `uc ]
+[e $UE 10  ]
+"41
+[; ;bits.c: 41: }
+[e :UE 10 ]
+}

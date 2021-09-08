@@ -1,0 +1,141 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"15 ./buffer.h
+[; ;./buffer.h: 15: struct buffer {
+[s S1 `c -> 64 `i `uc 1 `uc 1 `uc 1 ]
+[n S1 buffer buf head tail size ]
+[v F64 `*S1 ~T0 @X0 1 t ]
+[v F69 `*S1 ~T0 @X0 1 t ]
+[v F51 `*CS1 ~T0 @X0 1 t ]
+"31
+[; ;./buffer.h: 31: int8_t bufferPeek(const struct buffer * const buffer);
+[v _bufferPeek `(c ~T0 @X0 0 ef1`C*CS1 ]
+[v F74 `*CS1 ~T0 @X0 1 t ]
+[v F79 `*CS1 ~T0 @X0 1 t ]
+[v F83 `*CS1 ~T0 @X0 1 t ]
+"3 buffer.c
+[; ;buffer.c: 3: void bufferStore(struct buffer * const buffer, const int8_t byte) {
+[v _bufferStore `(v ~T0 @X0 1 ef2`C*S1`Cc ]
+{
+[e :U _bufferStore ]
+[v F66 `*S1 ~T0 @X0 1 t ]
+[v _buffer `C*S1 ~T0 @X0 1 r1 ]
+[v _byte `Cc ~T0 @X0 1 r2 ]
+[f ]
+"4
+[; ;buffer.c: 4:     if (buffer->size >= 64) {
+[e $ ! >= -> . *U _buffer 3 `i -> 64 `i 3  ]
+{
+"5
+[; ;buffer.c: 5:         return;
+[e $UE 2  ]
+"6
+[; ;buffer.c: 6:     }
+}
+[e :U 3 ]
+"7
+[; ;buffer.c: 7:     buffer->buf[buffer->head] = byte;
+[e = *U + &U . *U _buffer 0 * -> . *U _buffer 1 `ux -> -> # *U &U . *U _buffer 0 `ui `ux _byte ]
+"8
+[; ;buffer.c: 8:     buffer->size++;
+[e ++ . *U _buffer 3 -> -> 1 `i `uc ]
+"9
+[; ;buffer.c: 9:     buffer->head = (buffer->head + 1) % 64;
+[e = . *U _buffer 1 -> % + -> . *U _buffer 1 `i -> 1 `i -> 64 `i `uc ]
+"10
+[; ;buffer.c: 10: }
+[e :UE 2 ]
+}
+"12
+[; ;buffer.c: 12: int8_t bufferLoad(struct buffer * const buffer) {
+[v _bufferLoad `(c ~T0 @X0 1 ef1`C*S1 ]
+{
+[e :U _bufferLoad ]
+[v F71 `*S1 ~T0 @X0 1 t ]
+[v _buffer `C*S1 ~T0 @X0 1 r1 ]
+[f ]
+"13
+[; ;buffer.c: 13:     if (buffer->size == 0) {
+[e $ ! == -> . *U _buffer 3 `i -> 0 `i 5  ]
+{
+"14
+[; ;buffer.c: 14:         return -1;
+[e ) -> -U -> 1 `i `c ]
+[e $UE 4  ]
+"15
+[; ;buffer.c: 15:     }
+}
+[e :U 5 ]
+"16
+[; ;buffer.c: 16:     const int8_t byte = bufferPeek(buffer);
+[v _byte `Cc ~T0 @X0 1 a ]
+[e = _byte ( _bufferPeek (1 -> _buffer `*CS1 ]
+"17
+[; ;buffer.c: 17:     buffer->buf[buffer->tail] = -1;
+[e = *U + &U . *U _buffer 0 * -> . *U _buffer 2 `ux -> -> # *U &U . *U _buffer 0 `ui `ux -> -U -> 1 `i `c ]
+"18
+[; ;buffer.c: 18:     buffer->tail = (buffer->tail + 1) % 64;
+[e = . *U _buffer 2 -> % + -> . *U _buffer 2 `i -> 1 `i -> 64 `i `uc ]
+"19
+[; ;buffer.c: 19:     buffer->size--;
+[e -- . *U _buffer 3 -> -> 1 `i `uc ]
+"20
+[; ;buffer.c: 20:     return byte;
+[e ) _byte ]
+[e $UE 4  ]
+"21
+[; ;buffer.c: 21: }
+[e :UE 4 ]
+}
+"23
+[; ;buffer.c: 23: int8_t bufferPeek(const struct buffer * const buffer) {
+[v _bufferPeek `(c ~T0 @X0 1 ef1`C*CS1 ]
+{
+[e :U _bufferPeek ]
+[v F76 `*CS1 ~T0 @X0 1 t ]
+[v _buffer `C*CS1 ~T0 @X0 1 r1 ]
+[f ]
+"24
+[; ;buffer.c: 24:     const int8_t byte = buffer->buf[buffer->tail];
+[v _byte `Cc ~T0 @X0 1 a ]
+[e = _byte *U + &U . *U _buffer 0 * -> . *U _buffer 2 `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
+"25
+[; ;buffer.c: 25:     return byte;
+[e ) _byte ]
+[e $UE 6  ]
+"26
+[; ;buffer.c: 26: }
+[e :UE 6 ]
+}
+"28
+[; ;buffer.c: 28: uint8_t bufferSize(const struct buffer * const buffer) {
+[v _bufferSize `(uc ~T0 @X0 1 ef1`C*CS1 ]
+{
+[e :U _bufferSize ]
+[v F81 `*CS1 ~T0 @X0 1 t ]
+[v _buffer `C*CS1 ~T0 @X0 1 r1 ]
+[f ]
+"29
+[; ;buffer.c: 29:     return buffer->size;
+[e ) . *U _buffer 3 ]
+[e $UE 7  ]
+"30
+[; ;buffer.c: 30: }
+[e :UE 7 ]
+}
+"32
+[; ;buffer.c: 32: int8_t bufferGet(const struct buffer * const buffer, const uint8_t index) {
+[v _bufferGet `(c ~T0 @X0 1 ef2`C*CS1`Cuc ]
+{
+[e :U _bufferGet ]
+[v F85 `*CS1 ~T0 @X0 1 t ]
+[v _buffer `C*CS1 ~T0 @X0 1 r1 ]
+[v _index `Cuc ~T0 @X0 1 r2 ]
+[f ]
+"33
+[; ;buffer.c: 33:     return buffer->buf[(buffer->tail + index) % 64];
+[e ) *U + &U . *U _buffer 0 * -> -> % + -> . *U _buffer 2 `i -> _index `i -> 64 `i `ui `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
+[e $UE 8  ]
+"34
+[; ;buffer.c: 34: }
+[e :UE 8 ]
+}

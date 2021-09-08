@@ -1,4 +1,4 @@
-# 1 "pins.c"
+# 1 "uart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "pins.c" 2
-# 1 "./pins.h" 1
-# 11 "./pins.h"
+# 1 "uart.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdint.h" 1 3
 
 
@@ -115,7 +113,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdint.h" 2 3
-# 11 "./pins.h" 2
+# 1 "uart.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
@@ -9621,551 +9619,298 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 12 "./pins.h" 2
-
-# 1 "./bits.h" 1
-# 13 "./bits.h"
-__attribute__((inline)) uint8_t bitValue(uint8_t b);
-__attribute__((inline)) void bitClear(uint8_t *number, uint8_t b);
-__attribute__((inline)) uint8_t bitRead(uint8_t number, uint8_t b);
-__attribute__((inline)) void bitSet(uint8_t *number, uint8_t b);
-__attribute__((inline)) void bitWrite(uint8_t *number, uint8_t b, uint8_t val);
-__attribute__((inline)) uint8_t lowByte(int number);
-__attribute__((inline)) uint8_t highByte(int number);
-__attribute__((inline)) void setBit(volatile unsigned char *p, uint8_t b);
-__attribute__((inline)) void clearBit(volatile unsigned char *p, uint8_t b);
-__attribute__((inline)) uint8_t readBit(volatile unsigned char *p, uint8_t b);
-# 13 "./pins.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdbool.h" 1 3
-# 14 "./pins.h" 2
+# 2 "uart.c" 2
 
 
-enum modes {
-    ANALOG_INPUT = 0, INPUT = 1, INPUT_PULLUP = 2, OUTPUT = 3
+# 1 "./uart.h" 1
+# 11 "./uart.h"
+enum base_val {
+    BIN = 2, OCT = 8, DEC = 10, HEX = 16
 };
 
-enum ports {
-    A, B, C, D, E
+uint8_t available();
+uint8_t availableForWrite();
+void begin(int speed);
+void end();
+void flush();
+int8_t peek();
+void write(int8_t data);
+void print(const char *string);
+void println(const char *string);
+void printInt(const int32_t number, enum base_val value);
+void printlnInt(const int32_t number, enum base_val value);
+int8_t read();
+uint8_t readBytes(int8_t * const buffer, const uint8_t length);
+int32_t parseInt();
+# 4 "uart.c" 2
+
+# 1 "./buffer.h" 1
+# 15 "./buffer.h"
+struct buffer {
+    int8_t buf[64];
+    uint8_t head;
+    uint8_t tail;
+    uint8_t size;
+};
+# 29 "./buffer.h"
+void bufferStore(struct buffer * const buffer, const int8_t byte);
+int8_t bufferLoad(struct buffer * const buffer);
+int8_t bufferPeek(const struct buffer * const buffer);
+uint8_t bufferSize(const struct buffer * const buffer);
+int8_t bufferGet(const struct buffer * const buffer, const uint8_t index);
+# 5 "uart.c" 2
+
+# 1 "./delays.h" 1
+# 13 "./delays.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\time.h" 1 3
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\time.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 76 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long time_t;
+# 293 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * timer_t;
+
+
+
+
+typedef int clockid_t;
+
+
+
+
+typedef unsigned long clock_t;
+# 313 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+struct timespec { time_t tv_sec; long tv_nsec; };
+
+
+
+
+
+typedef int pid_t;
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 33 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\time.h" 2 3
+
+
+
+
+
+
+
+struct tm {
+ int tm_sec;
+ int tm_min;
+ int tm_hour;
+ int tm_mday;
+ int tm_mon;
+ int tm_year;
+ int tm_wday;
+ int tm_yday;
+ int tm_isdst;
+ long __tm_gmtoff;
+ const char *__tm_zone;
 };
 
-enum values {
-    LOW = 0, HIGH = 1
+clock_t clock (void);
+time_t time (time_t *);
+double difftime (time_t, time_t);
+time_t mktime (struct tm *);
+size_t strftime (char *restrict, size_t, const char *restrict, const struct tm *restrict);
+struct tm *gmtime (const time_t *);
+struct tm *localtime (const time_t *);
+char *asctime (const struct tm *);
+char *ctime (const time_t *);
+int timespec_get(struct timespec *, int);
+# 73 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\time.h" 3
+size_t strftime_l (char * restrict, size_t, const char * restrict, const struct tm * restrict, locale_t);
+
+struct tm *gmtime_r (const time_t *restrict, struct tm *restrict);
+struct tm *localtime_r (const time_t *restrict, struct tm *restrict);
+char *asctime_r (const struct tm *restrict, char *restrict);
+char *ctime_r (const time_t *, char *);
+
+void tzset (void);
+
+struct itimerspec {
+ struct timespec it_interval;
+ struct timespec it_value;
 };
+# 102 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\time.h" 3
+int nanosleep (const struct timespec *, struct timespec *);
+int clock_getres (clockid_t, struct timespec *);
+int clock_gettime (clockid_t, struct timespec *);
+int clock_settime (clockid_t, const struct timespec *);
+int clock_nanosleep (clockid_t, int, const struct timespec *, struct timespec *);
+int clock_getcpuclockid (pid_t, clockid_t *);
 
-void pinMode(uint8_t pin, enum modes mode);
-enum values digitalRead(uint8_t pin);
-void digitalWrite(uint8_t pin, enum values value);
-uint16_t analogRead(uint8_t pin);
-void analogWrite(uint8_t pin, uint16_t duty_cycle);
-# 1 "pins.c" 2
+struct sigevent;
+int timer_create (clockid_t, struct sigevent *restrict, timer_t *restrict);
+int timer_delete (timer_t);
+int timer_settime (timer_t, int, const struct itimerspec *restrict, struct itimerspec *restrict);
+int timer_gettime (timer_t, struct itimerspec *);
+int timer_getoverrun (timer_t);
+
+extern char *tzname[2];
 
 
-uint8_t pinToIndex(uint8_t pin) {
-    uint8_t pins[36] = {2, 3, 4, 5, 6, 7, 14, 13,
-        33, 34, 35, 36, 37, 38, 39, 40,
-        15, 16, 17, 18, 23, 24, 25, 26,
-        19, 20, 21, 22, 27, 28, 29, 30,
-        8, 9, 10, 1};
-    uint8_t i;
-    for (i = 0; i < 36; i++) {
-        if (pins[i] == pin) {
-            break;
+
+
+
+char *strptime (const char *restrict, const char *restrict, struct tm *restrict);
+extern int daylight;
+extern long timezone;
+extern int getdate_err;
+struct tm *getdate (const char *);
+# 13 "./delays.h" 2
+
+
+void delay(uint32_t ms);
+void delayMicroseconds(uint32_t us);
+uint32_t millis(void);
+uint32_t micros(void);
+# 6 "uart.c" 2
+
+# 1 "./helpers.h" 1
+# 11 "./helpers.h"
+void swap(char *x, char *y);
+char* reverse(char *buffer, int i, int j);
+char* itoa(int value, char* buffer, int base_val);
+# 7 "uart.c" 2
+
+# 1 "./parse_int.h" 1
+# 14 "./parse_int.h"
+int8_t getStartIndex(const struct buffer * const buffer);
+int8_t getEndIndex(const struct buffer * const buffer, const int8_t start_index);
+int8_t isNegative(struct buffer * const buffer, const int8_t start_index);
+int32_t parse_int(struct buffer * const buffer, int8_t start, const int8_t end, const int8_t negative);
+# 8 "uart.c" 2
+
+
+
+
+struct buffer receive_buffer = { .buf = { [0 ... 64 - 1] = -1 }, .head = 0, .tail = 0, .size = 0, };
+struct buffer transmit_buffer = { .buf = { [0 ... 64 - 1] = -1 }, .head = 0, .tail = 0, .size = 0, };
+
+void __attribute__((picinterrupt(("")))) myIsr(void) {
+    if (PIE1bits.TX1IE && PIR1bits.TX1IF) {
+        if (bufferSize(&transmit_buffer)) {
+            TXREG1 = bufferLoad(&transmit_buffer);
         }
+        PIR1bits.TX1IF = 0;
     }
-    return i;
+    if (PIE1bits.RC1IE && PIR1bits.RC1IF) {
+        const uint8_t byte = RCREG1;
+        bufferStore(&receive_buffer, byte);
+        PIR1bits.RC1IF = 0;
+    }
 }
 
-enum ports convertToPort(uint8_t i) {
-    if (i >= 0 && i <= 7) {
-        return A;
-    } else if (i >= 8 && i <= 15) {
-        return B;
-    } else if (i >= 16 && i <= 23) {
-        return C;
-    } else if (i >= 24 && i <= 31) {
-        return D;
+
+
+
+
+
+uint8_t available() {
+    return bufferSize(&receive_buffer);
+}
+
+uint8_t availableForWrite() {
+    return 64 - bufferSize(&transmit_buffer);
+}
+
+void begin(int speed) {
+    SPBRG = (uint8_t) ((16000000 / 64) / speed) - 1;
+    BAUDCON1bits.BRG16 = 0;
+    TXSTA1bits.BRGH = 0;
+    TXSTA1bits.TXEN = 1;
+    TXSTA1bits.TX9 = 0;
+    RCSTA1bits.SPEN = 1;
+    RCSTA1bits.CREN = 1;
+    RCSTA1bits.RX9 = 0;
+    SYNC1 = 0;
+}
+
+void end() {
+    RCSTA1bits.SPEN = 0;
+    TXSTA1bits.TXEN = 0;
+    RCSTA1bits.CREN = 0;
+}
+
+void flush() {
+    while (availableForWrite() < 64);
+}
+
+int8_t peek() {
+    return bufferPeek(&receive_buffer);
+}
+
+void write(int8_t data) {
+    if (!bufferSize(&transmit_buffer) && PIR1bits.TX1IF == 0) {
+        TXREG1 = data;
     } else {
-        return E;
+        bufferStore(&transmit_buffer, data);
     }
 }
 
-uint8_t convertToBit(uint8_t i) {
-    if (i >= 0 && i <= 7) {
-        return i;
-    } else if (i >= 8 && i <= 15) {
-        return i - 8;
-    } else if (i >= 16 && i <= 23) {
-        return i - 16;
-    } else if (i >= 24 && i <= 31) {
-        return i - 24;
-    } else {
-        return i - 32;
+void print(const char *string) {
+    uint8_t i = 0;
+
+    while (string[i] != '\n') {
+        write(string[i]);
+        i++;
     }
 }
 
-void pinMode(uint8_t pin, enum modes mode) {
-    if (pin == 11 ||
-            pin == 12 ||
-            pin == 31 ||
-            pin == 32 ||
-            pin < 1 ||
-            pin > 40) return;
-    if (mode != ANALOG_INPUT && mode != INPUT && mode != INPUT_PULLUP && mode != OUTPUT) return;
-
-    uint8_t port_num = pinToIndex(pin);
-    enum ports port = convertToPort(port_num);
-    uint8_t bit_val = convertToBit(port_num);
-
-    if (mode == ANALOG_INPUT) {
-        switch (port) {
-            case A:
-                setBit(&TRISA, bit_val);
-                setBit(&ANSELA, bit_val);
-                break;
-            case B:
-                setBit(&TRISB, bit_val);
-                setBit(&ANSELB, bit_val);
-                break;
-            case C:
-                setBit(&TRISC, bit_val);
-                setBit(&ANSELC, bit_val);
-                break;
-            case D:
-                setBit(&TRISD, bit_val);
-                setBit(&ANSELD, bit_val);
-                break;
-            case E:
-                setBit(&TRISE, bit_val);
-                setBit(&ANSELE, bit_val);
-                break;
-            default:
-                break;
-        }
-    } else if (mode == INPUT) {
-        switch (port) {
-            case A:
-                setBit(&TRISA, bit_val);
-                clearBit(&LATA, bit_val);
-                clearBit(&ANSELA, bit_val);
-                break;
-            case B:
-                setBit(&TRISB, bit_val);
-                clearBit(&LATB, bit_val);
-                clearBit(&ANSELB, bit_val);
-                break;
-            case C:
-                setBit(&TRISC, bit_val);
-                clearBit(&LATC, bit_val);
-                clearBit(&ANSELC, bit_val);
-                break;
-            case D:
-                setBit(&TRISD, bit_val);
-                clearBit(&LATD, bit_val);
-                clearBit(&ANSELD, bit_val);
-                break;
-            case E:
-                setBit(&TRISE, bit_val);
-                clearBit(&LATE, bit_val);
-                clearBit(&ANSELE, bit_val);
-                break;
-            default:
-                break;
-        }
-    } else if (mode == INPUT_PULLUP) {
-        switch (port) {
-            case A:
-                setBit(&TRISA, bit_val);
-                setBit(&LATA, bit_val);
-                clearBit(&ANSELA, bit_val);
-                break;
-            case B:
-                setBit(&TRISB, bit_val);
-                setBit(&LATB, bit_val);
-                clearBit(&ANSELB, bit_val);
-                break;
-            case C:
-                setBit(&TRISC, bit_val);
-                setBit(&LATC, bit_val);
-                clearBit(&ANSELC, bit_val);
-                break;
-            case D:
-                setBit(&TRISD, bit_val);
-                setBit(&LATD, bit_val);
-                clearBit(&ANSELD, bit_val);
-                break;
-            case E:
-                setBit(&TRISE, bit_val);
-                setBit(&LATE, bit_val);
-                clearBit(&ANSELE, bit_val);
-                break;
-            default:
-                break;
-        }
-    } else {
-        switch (port) {
-            case A:
-                clearBit(&TRISA, bit_val);
-                clearBit(&ANSELA, bit_val);
-                break;
-            case B:
-                clearBit(&TRISB, bit_val);
-                clearBit(&ANSELB, bit_val);
-                break;
-            case C:
-                clearBit(&TRISC, bit_val);
-                clearBit(&ANSELC, bit_val);
-                break;
-            case D:
-                clearBit(&TRISD, bit_val);
-                clearBit(&ANSELD, bit_val);
-                break;
-            case E:
-                clearBit(&TRISA, bit_val);
-                clearBit(&ANSELE, bit_val);
-                break;
-            default:
-                break;
-        }
-    }
+void println(const char *string) {
+    print(string);
+    write('\n');
 }
 
-enum values digitalRead(uint8_t pin) {
-    uint8_t port_num = pinToIndex(pin);
-    enum ports port = convertToPort(port_num);
-    uint8_t bit_val = convertToBit(port_num);
-    enum values value;
-
-    switch (port) {
-        case A:
-            value = readBit(&PORTA, bit_val);
-            break;
-        case B:
-            value = readBit(&PORTB, bit_val);
-            break;
-        case C:
-            value = readBit(&PORTC, bit_val);
-            break;
-        case D:
-            value = readBit(&PORTD, bit_val);
-            break;
-        case E:
-            value = readBit(&PORTE, bit_val);
-            break;
-        default:
-            break;
-    }
-    return value;
+void printInt(const int32_t number, enum base_val value) {
+    char buffer[32];
+    itoa(number, buffer, value);
+    print(buffer);
 }
 
-_Bool isAnalog(enum ports port, uint8_t bit_val) {
-    _Bool configuration;
-    switch (port) {
-        case A:
-            configuration = readBit(&ANSELA, bit_val);
-            break;
-        case B:
-            configuration = readBit(&ANSELB, bit_val);
-            break;
-        case C:
-            configuration = readBit(&ANSELC, bit_val);
-            break;
-        case D:
-            configuration = readBit(&ANSELD, bit_val);
-            break;
-        case E:
-            configuration = readBit(&ANSELE, bit_val);
-            break;
-        default:
-            break;
-    }
-    return configuration;
+void printlnInt(const int32_t number, enum base_val value) {
+    printInt(number, value);
+    write('\n');
 }
 
-void digitalWrite(uint8_t pin, enum values value) {
-    uint8_t port_num = pinToIndex(pin);
-    enum ports port = convertToPort(port_num);
-    uint8_t bit_val = convertToBit(port_num);
-
-    if (isAnalog(port, bit_val)) return;
-
-    switch (port) {
-        case A:
-            value ? setBit(&LATA, bit_val) : clearBit(&LATA, bit_val);
-            break;
-        case B:
-            value ? setBit(&LATB, bit_val) : clearBit(&LATB, bit_val);
-            break;
-        case C:
-            value ? setBit(&LATC, bit_val) : clearBit(&LATC, bit_val);
-            break;
-        case D:
-            value ? setBit(&LATD, bit_val) : clearBit(&LATD, bit_val);
-            break;
-        case E:
-            value ? setBit(&LATE, bit_val) : clearBit(&LATE, bit_val);
-            break;
-        default:
-            break;
-    }
-    return;
+int8_t read() {
+    return bufferLoad(&receive_buffer);
 }
 
-uint16_t analogRead(uint8_t pin) {
-    uint8_t port_num = pinToIndex(pin);
-    enum ports port = convertToPort(port_num);
-    uint8_t bit_val = convertToBit(port_num);
+uint8_t readBytes(int8_t * const buffer, const uint8_t length) {
+    const uint32_t timeout = 1000;
+    const uint32_t start = millis();
+    uint8_t index = 0;
 
-    if (!isAnalog(port, bit_val)) return 1024;
-
-    ADCON2bits.ADCS = 0b000;
-    ADCON1bits.PVCFG = 0b00;
-
-    if (port == A) {
-        switch (bit_val) {
-            case 0:
-                ADCON0bits.CHS = 0b00000;
-                break;
-            case 1:
-                ADCON0bits.CHS = 0b00001;
-                break;
-            case 2:
-                ADCON0bits.CHS = 0b00010;
-                break;
-            case 3:
-                ADCON0bits.CHS = 0b00011;
-                break;
-            case 4:
-                ADCON0bits.CHS = 0b00100;
-                break;
-            default:
-                break;
+    while (millis() - start < timeout) {
+        while (index < length && bufferSize(&receive_buffer) > 0) {
+            buffer[index] = bufferLoad(&receive_buffer);
+            index++;
         }
-    } else if (port == B) {
-        switch (bit_val) {
-            case 0:
-                ADCON0bits.CHS = 0b01100;
-                break;
-            case 1:
-                ADCON0bits.CHS = 0b01010;
-                break;
-            case 2:
-                ADCON0bits.CHS = 0b01000;
-                break;
-            case 3:
-                ADCON0bits.CHS = 0b01001;
-                break;
-            case 4:
-                ADCON0bits.CHS = 0b01011;
-                break;
-            case 5:
-                ADCON0bits.CHS = 0b01101;
-            default:
-                break;
-        }
-    } else if (port == C) {
-        switch (bit_val) {
-            case 2:
-                ADCON0bits.CHS = 0b01110;
-                break;
-            case 3:
-                ADCON0bits.CHS = 0b01111;
-                break;
-            case 4:
-                ADCON0bits.CHS = 0b10000;
-                break;
-            case 5:
-                ADCON0bits.CHS = 0b10001;
-                break;
-            case 6:
-                ADCON0bits.CHS = 0b10010;
-                break;
-            case 7:
-                ADCON0bits.CHS = 0b10011;
-                break;
-            default:
-                break;
-        }
-    } else if (port == D) {
-        switch (bit_val) {
-            case 0:
-                ADCON0bits.CHS = 0b10100;
-                break;
-            case 1:
-                ADCON0bits.CHS = 0b10101;
-                break;
-            case 2:
-                ADCON0bits.CHS = 0b10110;
-                break;
-            case 3:
-                ADCON0bits.CHS = 0b10111;
-                break;
-            case 4:
-                ADCON0bits.CHS = 0b11000;
-                break;
-            case 5:
-                ADCON0bits.CHS = 0b11001;
-                break;
-            case 6:
-                ADCON0bits.CHS = 0b11010;
-                break;
-            case 7:
-                ADCON0bits.CHS = 0b11011;
-                break;
-            default:
-                break;
-        }
-    } else if (port == E) {
-        switch (bit_val) {
-            case 0:
-                ADCON0bits.CHS = 0b00101;
-                break;
-            case 1:
-                ADCON0bits.CHS = 0b00110;
-                break;
-            case 2:
-                ADCON0bits.CHS = 0b00111;
-                break;
-            default:
-                break;
+        if (index == length) {
+            break;
         }
     }
-    ADCON2bits.ADFM = 1;
-    ADCON2bits.ACQT = 0b001;
-    ADCON0bits.ADON = 1;
-    ADCON0bits.GO = 1;
-
-    while (ADCON0bits.GO == 1);
-    PIR1bits.ADIF = 0;
-
-    uint16_t reading;
-    uint16_t low_byte = ADRESL;
-    uint16_t high_byte = ADRESH;
-
-    if (ADCON2bits.ADFM == 1) {
-        high_byte = high_byte << 8;
-    } else {
-        high_byte = high_byte << 2;
-        low_byte = low_byte >> 6;
-    }
-    reading = low_byte | high_byte;
-    ADCON0bits.ADON = 0;
-
-    return reading;
+    return index;
 }
 
-void analogWrite(uint8_t pin, uint16_t duty_cycle) {
-
-    if (pin != 17 && pin != 36 && pin != 16 && pin != 38 && pin != 8 && pin != 20 && pin != 10) return;
-    if (duty_cycle == 0) {
-        pinMode(pin, OUTPUT);
-        digitalWrite(pin, LOW);
-    } else if (duty_cycle == 255) {
-        pinMode(pin, OUTPUT);
-        digitalWrite(pin, HIGH);
-    } else {
-
-
-
-
-        uint16_t val = duty_cycle * 4 * 256;
-        uint16_t msb = (val & 0b1111111111111100) >> 2;
-        uint16_t lsb = val & 0b0000000000000011;
-        switch (pin) {
-            case 8:
-                setBit(&TRISE, 0);
-                CCPTMRS0bits.C3TSEL = 0b00;
-                PR2 = 255;
-                CCP3CONbits.CCP3M = 0b1111;
-                CCP3CONbits.DC3B = lsb;
-                CCPR3L = msb;
-                PIR1bits.TMR2IF = 0;
-                T2CONbits.T2CKPS = 0b01;
-                T2CONbits.TMR2ON = 1;
-                while (PIR1bits.TMR2IF == 0);
-                clearBit(&TRISE, 0);
-                break;
-            case 10:
-                setBit(&TRISE, 2);
-                CCPTMRS1bits.C5TSEL = 0b01;
-                PR4 = 255;
-                CCP5CONbits.CCP5M = 0b1111;
-                CCP5CONbits.DC5B = lsb;
-                CCPR5L = msb;
-                PIR5bits.TMR4IF = 0;
-                T4CONbits.T4CKPS = 0b01;
-                T4CONbits.TMR4ON = 1;
-                while (PIR5bits.TMR4IF == 0);
-                clearBit(&TRISE, 2);
-                break;
-            case 16:
-                setBit(&TRISC, 1);
-                CCPTMRS0bits.C2TSEL = 0b01;
-                PR4 = 255;
-                CCP2CONbits.CCP2M = 0b1111;
-                CCP2CONbits.DC2B = lsb;
-                CCPR2L = msb;
-                PIR5bits.TMR4IF = 0;
-                T4CONbits.T4CKPS = 0b01;
-                T4CONbits.TMR4ON = 1;
-                while (PIR5bits.TMR4IF == 0);
-                clearBit(&TRISC, 1);
-                break;
-            case 17:
-                setBit(&TRISC, 2);
-                CCPTMRS0bits.C1TSEL = 0b10;
-                PR6 = 255;
-                CCP1CONbits.CCP1M = 0b1111;
-                CCP1CONbits.DC1B = lsb;
-                CCPR1L = msb;
-                PIR5bits.TMR6IF = 0;
-                T6CONbits.T6CKPS = 0b01;
-                T6CONbits.TMR6ON = 1;
-                while (PIR5bits.TMR6IF == 0);
-                clearBit(&TRISC, 2);
-                break;
-            case 20:
-                setBit(&TRISD, 1);
-                CCPTMRS1bits.C4TSEL = 0b00;
-                PR2 = 255;
-                CCP4CONbits.CCP4M = 0b1111;
-                CCP4CONbits.DC4B = lsb;
-                CCPR4L = msb;
-                PIR1bits.TMR2IF = 0;
-                T2CONbits.T2CKPS = 0b01;
-                T2CONbits.TMR2ON = 1;
-                while (PIR1bits.TMR2IF == 0);
-                clearBit(&TRISD, 1);
-                break;
-            case 36:
-                setBit(&TRISB, 3);
-                CCPTMRS0bits.C2TSEL = 0b01;
-                PR4 = 255;
-                CCP2CONbits.CCP2M = 0b1111;
-                CCP2CONbits.DC2B = lsb;
-                CCPR2L = msb;
-                PIR5bits.TMR4IF = 0;
-                T4CONbits.T4CKPS = 0b01;
-                T4CONbits.TMR4ON = 1;
-                while (PIR5bits.TMR4IF == 0);
-                clearBit(&TRISB, 3);
-                break;
-            case 38:
-                setBit(&TRISB, 5);
-                CCPTMRS0bits.C3TSEL = 0b00;
-                PR2 = 255;
-                CCP3CONbits.CCP3M = 0b1111;
-                CCP3CONbits.DC3B = lsb;
-                CCPR3L = msb;
-                PIR1bits.TMR2IF = 0;
-                T2CONbits.T2CKPS = 0b01;
-                T2CONbits.TMR2ON = 1;
-                while (PIR1bits.TMR2IF == 0);
-                clearBit(&TRISB, 0);
-                break;
-            default:
-                return;
+int32_t parseInt() {
+    const uint32_t timeout = 1000;
+    const uint32_t start = millis();
+    int8_t start_index = -1;
+    int8_t end_index = -1;
+    while (millis() - start < timeout) {
+        start_index = getStartIndex(&receive_buffer);
+        end_index = getEndIndex(&receive_buffer, start_index);
+        if (end_index != -1 && end_index != bufferSize(&receive_buffer)) {
+            break;
         }
     }
-
+    const int8_t negative = isNegative(&receive_buffer, start_index);
+    const int32_t result = parse_int(&receive_buffer, start_index, end_index, negative);
+    return result;
 }

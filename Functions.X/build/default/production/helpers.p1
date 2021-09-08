@@ -1,0 +1,161 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"51 C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c99\stdlib.h: 51: int abs (int);
+[v _abs `(i ~T0 @X0 0 ef1`i ]
+"4 helpers.c
+[; ;helpers.c: 4: void swap(char *x, char *y) {
+[v _swap `(v ~T0 @X0 1 ef2`*uc`*uc ]
+{
+[e :U _swap ]
+[v _x `*uc ~T0 @X0 1 r1 ]
+[v _y `*uc ~T0 @X0 1 r2 ]
+[f ]
+"5
+[; ;helpers.c: 5:     char t = *x;
+[v _t `uc ~T0 @X0 1 a ]
+[e = _t *U _x ]
+"6
+[; ;helpers.c: 6:     *x = *y;
+[e = *U _x *U _y ]
+"7
+[; ;helpers.c: 7:     *y = t;
+[e = *U _y _t ]
+"8
+[; ;helpers.c: 8: }
+[e :UE 6 ]
+}
+"10
+[; ;helpers.c: 10: char* reverse(char *buffer, int i, int j) {
+[v _reverse `(*uc ~T0 @X0 1 ef3`*uc`i`i ]
+{
+[e :U _reverse ]
+[v _buffer `*uc ~T0 @X0 1 r1 ]
+[v _i `i ~T0 @X0 1 r2 ]
+[v _j `i ~T0 @X0 1 r3 ]
+[f ]
+"11
+[; ;helpers.c: 11:     while (i < j) {
+[e $U 8  ]
+[e :U 9 ]
+{
+"12
+[; ;helpers.c: 12:         swap(&buffer[i++], &buffer[j--]);
+[e ( _swap (2 , &U *U + _buffer * -> ++ _i -> 1 `i `x -> -> # *U _buffer `i `x &U *U + _buffer * -> -- _j -> 1 `i `x -> -> # *U _buffer `i `x ]
+"13
+[; ;helpers.c: 13:     }
+}
+[e :U 8 ]
+"11
+[; ;helpers.c: 11:     while (i < j) {
+[e $ < _i _j 9  ]
+[e :U 10 ]
+"14
+[; ;helpers.c: 14:     return buffer;
+[e ) _buffer ]
+[e $UE 7  ]
+"15
+[; ;helpers.c: 15: }
+[e :UE 7 ]
+}
+"17
+[; ;helpers.c: 17: char* itoa(int value, char* buffer, int base_val) {
+[v _itoa `(*uc ~T0 @X0 1 ef3`i`*uc`i ]
+{
+[e :U _itoa ]
+[v _value `i ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+[v _base_val `i ~T0 @X0 1 r3 ]
+[f ]
+"19
+[; ;helpers.c: 19:     if (base_val < 2 || base_val > 32) {
+[e $ ! || < _base_val -> 2 `i > _base_val -> 32 `i 12  ]
+{
+"20
+[; ;helpers.c: 20:         return buffer;
+[e ) _buffer ]
+[e $UE 11  ]
+"21
+[; ;helpers.c: 21:     }
+}
+[e :U 12 ]
+"23
+[; ;helpers.c: 23:     int n = abs(value);
+[v _n `i ~T0 @X0 1 a ]
+[e = _n ( _abs (1 _value ]
+"24
+[; ;helpers.c: 24:     int i = 0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+"26
+[; ;helpers.c: 26:     while (n) {
+[e $U 13  ]
+[e :U 14 ]
+{
+"27
+[; ;helpers.c: 27:         int r = n % base_val;
+[v _r `i ~T0 @X0 1 a ]
+[e = _r % _n _base_val ]
+"29
+[; ;helpers.c: 29:         if (r >= 10) {
+[e $ ! >= _r -> 10 `i 16  ]
+{
+"30
+[; ;helpers.c: 30:             buffer[i++] = 65 + (r - 10);
+[e = *U + _buffer * -> ++ _i -> 1 `i `x -> -> # *U _buffer `i `x -> + -> 65 `i - _r -> 10 `i `uc ]
+"31
+[; ;helpers.c: 31:         } else {
+}
+[e $U 17  ]
+[e :U 16 ]
+{
+"32
+[; ;helpers.c: 32:             buffer[i++] = 48 + r;
+[e = *U + _buffer * -> ++ _i -> 1 `i `x -> -> # *U _buffer `i `x -> + -> 48 `i _r `uc ]
+"33
+[; ;helpers.c: 33:         }
+}
+[e :U 17 ]
+"35
+[; ;helpers.c: 35:         n = n / base_val;
+[e = _n / _n _base_val ]
+"36
+[; ;helpers.c: 36:     }
+}
+[e :U 13 ]
+"26
+[; ;helpers.c: 26:     while (n) {
+[e $ != _n -> 0 `i 14  ]
+[e :U 15 ]
+"39
+[; ;helpers.c: 39:     if (i == 0) {
+[e $ ! == _i -> 0 `i 18  ]
+{
+"40
+[; ;helpers.c: 40:         buffer[i++] = '0';
+[e = *U + _buffer * -> ++ _i -> 1 `i `x -> -> # *U _buffer `i `x -> -> 48 `ui `uc ]
+"41
+[; ;helpers.c: 41:     }
+}
+[e :U 18 ]
+"46
+[; ;helpers.c: 46:     if (value < 0 && base_val == 10) {
+[e $ ! && < _value -> 0 `i == _base_val -> 10 `i 19  ]
+{
+"47
+[; ;helpers.c: 47:         buffer[i++] = '-';
+[e = *U + _buffer * -> ++ _i -> 1 `i `x -> -> # *U _buffer `i `x -> -> 45 `ui `uc ]
+"48
+[; ;helpers.c: 48:     }
+}
+[e :U 19 ]
+"50
+[; ;helpers.c: 50:     buffer[i] = '\0';
+[e = *U + _buffer * -> _i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
+"53
+[; ;helpers.c: 53:     return reverse(buffer, 0, i - 1);
+[e ) ( _reverse (3 , , _buffer -> 0 `i - _i -> 1 `i ]
+[e $UE 11  ]
+"54
+[; ;helpers.c: 54: }
+[e :UE 11 ]
+}

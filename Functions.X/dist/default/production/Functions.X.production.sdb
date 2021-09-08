@@ -3,19 +3,7 @@
 [d edition pro ]
 [d chip 18F44K22 ]
 [d frameptr 4065 ]
-"27 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
-[e E6358 mode `uc
-ANALOG_INPUT 0
-INPUT 1
-INPUT_PULLUP 2
-OUTPUT 3
-]
-"29
-[e E6339 values `uc
-LOW 0
-HIGH 1
-]
-"25 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+"18 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
 [e E6026 ports `uc
 A 0
 B 1
@@ -23,26 +11,77 @@ C 2
 D 3
 E 4
 ]
-"68
-[e E6021 mode `uc
+"46
+[e E6021 modes `uc
 ANALOG_INPUT 0
 INPUT 1
 INPUT_PULLUP 2
 OUTPUT 3
 ]
-"190
+"172
 [e E6032 values `uc
 LOW 0
 HIGH 1
 ]
+"90 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\uart.c
+[e E5983 base_val `uc
+BIN 2
+OCT 8
+DEC 10
+HEX 16
+]
+"36 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\main.c
+[e E6339 modes `uc
+ANALOG_INPUT 0
+INPUT 1
+INPUT_PULLUP 2
+OUTPUT 3
+]
+"38
+[e E6350 values `uc
+LOW 0
+HIGH 1
+]
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\bits.c
+[v _bitValue bitValue `T(uc  1 e 1 0 ]
+"7
+[v _bitClear bitClear `T(v  1 e 1 0 ]
+"11
+[v _bitRead bitRead `T(uc  1 e 1 0 ]
+"15
+[v _bitSet bitSet `T(v  1 e 1 0 ]
+"19
+[v _bitWrite bitWrite `T(v  1 e 1 0 ]
+"31
+[v _setBit setBit `T(v  1 e 1 0 ]
+"35
+[v _clearBit clearBit `T(v  1 e 1 0 ]
+"39
+[v _readBit readBit `T(uc  1 e 1 0 ]
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\buffer.c
+[v _bufferStore bufferStore `(v  1 e 1 0 ]
+"12
+[v _bufferLoad bufferLoad `(c  1 e 1 0 ]
+"23
+[v _bufferPeek bufferPeek `(c  1 e 1 0 ]
+"28
+[v _bufferSize bufferSize `(uc  1 e 1 0 ]
+"32
+[v _bufferGet bufferGet `(c  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c
 [v ___aodiv __aodiv `(o  1 e 8 0 ]
 "9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c
 [v ___aomod __aomod `(o  1 e 8 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "72 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _pad pad `(i  1 s 2 pad ]
 "287
@@ -85,40 +124,56 @@ HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"19 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
-[v _main main `(i  1 e 2 0 ]
-"7 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mydelays.c
+"5 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\delays.c
 [v _delay delay `(v  1 e 1 0 ]
-"23
-[v _seconds seconds `(ul  1 e 4 0 ]
-"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
-[v _bitValue bitValue `T(uc  1 e 1 0 ]
-"7
-[v _bitClear bitClear `T(v  1 e 1 0 ]
-"11
-[v _bitRead bitRead `T(uc  1 e 1 0 ]
-"15
-[v _bitSet bitSet `T(v  1 e 1 0 ]
 "19
-[v _bitWrite bitWrite `T(v  1 e 1 0 ]
-"30
-[v _setBit setBit `T(v  1 e 1 0 ]
-"34
-[v _clearBit clearBit `T(v  1 e 1 0 ]
-"37
-[v _readBit readBit `T(uc  1 e 1 0 ]
-"10 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
-[v _pinToIndex pinToIndex `(uc  1 e 1 0 ]
+[v _seconds seconds `(ul  1 e 4 0 ]
 "25
+[v _millis millis `(ul  1 e 4 0 ]
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\eeprom.c
+[v _eepromRead eepromRead `(uc  1 e 1 0 ]
+"13
+[v _eepromWrite eepromWrite `(v  1 e 1 0 ]
+"4 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\helpers.c
+[v _swap swap `(v  1 e 1 0 ]
+"10
+[v _reverse reverse `(*.39uc  1 e 2 0 ]
+"17
+[v _itoa itoa `(*.39uc  1 e 2 0 ]
+"28 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\parse_int.c
+[v _getStartIndex getStartIndex `(c  1 e 1 0 ]
+"13
+[v _getEndIndex getEndIndex `(c  1 e 1 0 ]
+"27
+[v _isNegative isNegative `(c  1 e 1 0 ]
+"33
+[v _parse_int parse_int `(l  1 e 4 0 ]
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[v _pinToIndex pinToIndex `(uc  1 e 1 0 ]
+"18
 [v _convertToPort convertToPort `(E6026  1 e 1 0 ]
-"43
+"32
 [v _convertToBit convertToBit `(uc  1 e 1 0 ]
-"61
+"46
 [v _pinMode pinMode `(v  1 e 1 0 ]
-"190
-[v _digitalRead digitalRead `(E6339  1 e 1 0 ]
-"218
+"172
+[v _digitalRead digitalRead `(E6032  1 e 1 0 ]
+"200
 [v _isAnalog isAnalog `(a  1 e 1 0 ]
+"224
+[v _digitalWrite digitalWrite `(v  1 e 1 0 ]
+"15 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\uart.c
+[v _myIsr myIsr `IIH(v  1 e 1 0 ]
+"38
+[v _availableForWrite availableForWrite `(uc  1 e 1 0 ]
+"68
+[v _write write `(v  1 e 1 0 ]
+"76
+[v _print print `(v  1 e 1 0 ]
+"90
+[v _printInt printInt `(v  1 e 1 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f44k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "97
@@ -129,6 +184,142 @@ HIGH 1
 [v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
 "260
 [v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
+[s S334 . 1 `uc 1 C4TSEL 1 0 :2:0 
+`uc 1 C5TSEL 1 0 :2:2 
+]
+"1354
+[s S337 . 1 `uc 1 C4TSEL0 1 0 :1:0 
+`uc 1 C4TSEL1 1 0 :1:1 
+`uc 1 C5TSEL0 1 0 :1:2 
+`uc 1 C5TSEL1 1 0 :1:3 
+]
+[u S342 . 1 `S334 1 . 1 0 `S337 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES342  1 e 1 @3912 ]
+[s S240 . 1 `uc 1 C1TSEL 1 0 :2:0 
+`uc 1 . 1 0 :1:2 
+`uc 1 C2TSEL 1 0 :2:3 
+`uc 1 . 1 0 :1:5 
+`uc 1 C3TSEL 1 0 :2:6 
+]
+"1413
+[s S246 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+`uc 1 C1TSEL1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 C2TSEL0 1 0 :1:3 
+`uc 1 C2TSEL1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 C3TSEL0 1 0 :1:6 
+`uc 1 C3TSEL1 1 0 :1:7 
+]
+[u S255 . 1 `S240 1 . 1 0 `S246 1 . 1 0 ]
+[v _CCPTMRS0bits CCPTMRS0bits `VES255  1 e 1 @3913 ]
+[s S482 . 1 `uc 1 T6CKPS 1 0 :2:0 
+`uc 1 TMR6ON 1 0 :1:2 
+`uc 1 T6OUTPS 1 0 :4:3 
+]
+"1484
+[s S486 . 1 `uc 1 T6CKPS0 1 0 :1:0 
+`uc 1 T6CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T6OUTPS0 1 0 :1:3 
+`uc 1 T6OUTPS1 1 0 :1:4 
+`uc 1 T6OUTPS2 1 0 :1:5 
+`uc 1 T6OUTPS3 1 0 :1:6 
+]
+[u S494 . 1 `S482 1 . 1 0 `S486 1 . 1 0 ]
+[v _T6CONbits T6CONbits `VES494  1 e 1 @3914 ]
+"1534
+[v _PR6 PR6 `VEuc  1 e 1 @3915 ]
+[s S391 . 1 `uc 1 T4CKPS 1 0 :2:0 
+`uc 1 TMR4ON 1 0 :1:2 
+`uc 1 T4OUTPS 1 0 :4:3 
+]
+"1846
+[s S395 . 1 `uc 1 T4CKPS0 1 0 :1:0 
+`uc 1 T4CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T4OUTPS0 1 0 :1:3 
+`uc 1 T4OUTPS1 1 0 :1:4 
+`uc 1 T4OUTPS2 1 0 :1:5 
+`uc 1 T4OUTPS3 1 0 :1:6 
+]
+[u S403 . 1 `S391 1 . 1 0 `S395 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES403  1 e 1 @3921 ]
+"1896
+[v _PR4 PR4 `VEuc  1 e 1 @3922 ]
+[s S355 . 1 `uc 1 CCP5M 1 0 :4:0 
+`uc 1 DC5B 1 0 :2:4 
+]
+"1955
+[s S358 . 1 `uc 1 CCP5M0 1 0 :1:0 
+`uc 1 CCP5M1 1 0 :1:1 
+`uc 1 CCP5M2 1 0 :1:2 
+`uc 1 CCP5M3 1 0 :1:3 
+`uc 1 DC5B0 1 0 :1:4 
+`uc 1 DC5B1 1 0 :1:5 
+]
+[u S365 . 1 `S355 1 . 1 0 `S358 1 . 1 0 ]
+[v _CCP5CONbits CCP5CONbits `VES365  1 e 1 @3924 ]
+"2007
+[v _CCPR5L CCPR5L `VEuc  1 e 1 @3925 ]
+[s S510 . 1 `uc 1 CCP4M 1 0 :4:0 
+`uc 1 DC4B 1 0 :2:4 
+]
+"2066
+[s S513 . 1 `uc 1 CCP4M0 1 0 :1:0 
+`uc 1 CCP4M1 1 0 :1:1 
+`uc 1 CCP4M2 1 0 :1:2 
+`uc 1 CCP4M3 1 0 :1:3 
+`uc 1 DC4B0 1 0 :1:4 
+`uc 1 DC4B1 1 0 :1:5 
+]
+[u S520 . 1 `S510 1 . 1 0 `S513 1 . 1 0 ]
+[v _CCP4CONbits CCP4CONbits `VES520  1 e 1 @3927 ]
+"2118
+[v _CCPR4L CCPR4L `VEuc  1 e 1 @3928 ]
+[s S275 . 1 `uc 1 CCP3M 1 0 :4:0 
+`uc 1 DC3B 1 0 :2:4 
+`uc 1 P3M 1 0 :2:6 
+]
+"2568
+[s S279 . 1 `uc 1 CCP3M0 1 0 :1:0 
+`uc 1 CCP3M1 1 0 :1:1 
+`uc 1 CCP3M2 1 0 :1:2 
+`uc 1 CCP3M3 1 0 :1:3 
+`uc 1 DC3B0 1 0 :1:4 
+`uc 1 DC3B1 1 0 :1:5 
+`uc 1 P3M0 1 0 :1:6 
+`uc 1 P3M1 1 0 :1:7 
+]
+[u S288 . 1 `S275 1 . 1 0 `S279 1 . 1 0 ]
+[v _CCP3CONbits CCP3CONbits `VES288  1 e 1 @3933 ]
+"2635
+[v _CCPR3L CCPR3L `VEuc  1 e 1 @3934 ]
+[s S419 . 1 `uc 1 CCP2M 1 0 :4:0 
+`uc 1 DC2B 1 0 :2:4 
+`uc 1 P2M 1 0 :2:6 
+]
+"3294
+[s S423 . 1 `uc 1 CCP2M0 1 0 :1:0 
+`uc 1 CCP2M1 1 0 :1:1 
+`uc 1 CCP2M2 1 0 :1:2 
+`uc 1 CCP2M3 1 0 :1:3 
+`uc 1 DC2B0 1 0 :1:4 
+`uc 1 DC2B1 1 0 :1:5 
+`uc 1 P2M0 1 0 :1:6 
+`uc 1 P2M1 1 0 :1:7 
+]
+[u S432 . 1 `S419 1 . 1 0 `S423 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES432  1 e 1 @3942 ]
+"3361
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @3943 ]
+[s S380 . 1 `uc 1 TMR4IF 1 0 :1:0 
+`uc 1 TMR5IF 1 0 :1:1 
+`uc 1 TMR6IF 1 0 :1:2 
+]
+"6214
+[u S384 . 1 `S380 1 . 1 0 ]
+[v _PIR5bits PIR5bits `VES384  1 e 1 @3966 ]
 "6280
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "6565
@@ -159,25 +350,326 @@ HIGH 1
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "8948
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S156 . 1 `uc 1 ADCS 1 0 :3:0 
+[s S709 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"9436
+[s S717 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S722 . 1 `S709 1 . 1 0 `S717 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES722  1 e 1 @3997 ]
+[s S208 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"9513
+[s S216 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+]
+[u S221 . 1 `S208 1 . 1 0 `S216 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES221  1 e 1 @3998 ]
+[s S1421 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"10190
+[s S1430 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S1433 . 1 `S1421 1 . 1 0 `S1430 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES1433  1 e 1 @4006 ]
+"10235
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"10255
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"10275
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+[s S910 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"10398
+[s S919 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S922 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+[s S931 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S935 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S938 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S941 . 1 `S910 1 . 1 0 `S919 1 . 1 0 `S922 1 . 1 0 `S931 1 . 1 0 `S935 1 . 1 0 `S938 1 . 1 0 ]
+[v _RCSTA1bits RCSTA1bits `VES941  1 e 1 @4011 ]
+[s S861 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"10842
+[s S870 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S879 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S883 . 1 `S861 1 . 1 0 `S870 1 . 1 0 `S879 1 . 1 0 ]
+[v _TXSTA1bits TXSTA1bits `VES883  1 e 1 @4012 ]
+"11176
+[v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
+"11254
+[v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
+"11337
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S778 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 CKTXP 1 0 :1:4 
+`uc 1 DTRXP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"12438
+[s S787 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+]
+[s S790 . 1 `uc 1 ABDEN1 1 0 :1:0 
+`uc 1 WUE1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG161 1 0 :1:3 
+`uc 1 SCKP1 1 0 :1:4 
+`uc 1 DTRXP1 1 0 :1:5 
+`uc 1 RCIDL1 1 0 :1:6 
+`uc 1 ABDOVF1 1 0 :1:7 
+]
+[s S799 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S804 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXCKP1 1 0 :1:4 
+`uc 1 RXDTP1 1 0 :1:5 
+`uc 1 RCMT1 1 0 :1:6 
+]
+[s S809 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S812 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S815 . 1 `S778 1 . 1 0 `S787 1 . 1 0 `S790 1 . 1 0 `S799 1 . 1 0 `S804 1 . 1 0 `S809 1 . 1 0 `S812 1 . 1 0 ]
+[v _BAUDCON1bits BAUDCON1bits `VES815  1 e 1 @4024 ]
+[s S306 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"13219
+[s S310 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S318 . 1 `S306 1 . 1 0 `S310 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES318  1 e 1 @4026 ]
+"13269
+[v _PR2 PR2 `VEuc  1 e 1 @4027 ]
+[s S451 . 1 `uc 1 CCP1M 1 0 :4:0 
+`uc 1 DC1B 1 0 :2:4 
+`uc 1 P1M 1 0 :2:6 
+]
+"13331
+[s S455 . 1 `uc 1 CCP1M0 1 0 :1:0 
+`uc 1 CCP1M1 1 0 :1:1 
+`uc 1 CCP1M2 1 0 :1:2 
+`uc 1 CCP1M3 1 0 :1:3 
+`uc 1 DC1B0 1 0 :1:4 
+`uc 1 DC1B1 1 0 :1:5 
+`uc 1 P1M0 1 0 :1:6 
+`uc 1 P1M1 1 0 :1:7 
+]
+[u S464 . 1 `S451 1 . 1 0 `S455 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES464  1 e 1 @4029 ]
+"13398
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
+[s S79 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "13459
-[s S161 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S84 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S168 . 1 `S156 1 . 1 0 `S161 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES168  1 e 1 @4032 ]
+[u S91 . 1 `S79 1 . 1 0 `S84 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES91  1 e 1 @4032 ]
+[s S107 . 1 `uc 1 NVCFG 1 0 :2:0 
+`uc 1 PVCFG 1 0 :2:2 
+`uc 1 . 1 0 :3:4 
+`uc 1 TRIGSEL 1 0 :1:7 
+]
+"13532
+[s S112 . 1 `uc 1 NVCFG0 1 0 :1:0 
+`uc 1 NVCFG1 1 0 :1:1 
+`uc 1 PVCFG0 1 0 :1:2 
+`uc 1 PVCFG1 1 0 :1:3 
+]
+[s S117 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[u S120 . 1 `S107 1 . 1 0 `S112 1 . 1 0 `S117 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES120  1 e 1 @4033 ]
+[s S138 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"13622
+[s S141 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+[s S145 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+[s S153 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S156 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S159 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S162 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S165 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S168 . 1 `S138 1 . 1 0 `S141 1 . 1 0 `S145 1 . 1 0 `S153 1 . 1 0 `S156 1 . 1 0 `S159 1 . 1 0 `S162 1 . 1 0 `S165 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES168  1 e 1 @4034 ]
 "13709
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "13729
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S1193 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"15837
+[s S1195 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S1198 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S1201 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S1204 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S1207 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S1216 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+]
+[u S1222 . 1 `S1193 1 . 1 0 `S1195 1 . 1 0 `S1198 1 . 1 0 `S1201 1 . 1 0 `S1204 1 . 1 0 `S1207 1 . 1 0 `S1216 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1222  1 e 1 @4048 ]
+[s S1260 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"16924
+[s S1269 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S1278 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S1282 . 1 `S1260 1 . 1 0 `S1269 1 . 1 0 `S1278 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1282  1 e 1 @4082 ]
+"19996
+[v _SYNC1 SYNC1 `VEb  1 e 0 @32100 ]
 "55 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
@@ -186,103 +678,108 @@ HIGH 1
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "69
 [v _nout nout `i  1 s 2 nout ]
-"19 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\fun.c
+[s S704 buffer 67 `[64]c 1 buf 64 0 `uc 1 head 1 64 `uc 1 tail 1 65 `uc 1 size 1 66 ]
+"12 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\uart.c
+[v _receive_buffer receive_buffer `S704  1 e 67 0 ]
+"13
+[v _transmit_buffer transmit_buffer `S704  1 e 67 0 ]
+"28 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"22
-[v main@a a `uc  1 a 1 94 ]
-"33
+"31
+[v main@a a `uc  1 a 1 73 ]
+"42
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "8
-[v printf@ap ap `[1]*.39v  1 a 2 91 ]
+[v printf@ap ap `[1]*.39v  1 a 2 70 ]
 "5
-[v printf@fmt fmt `*.25Cuc  1 p 2 87 ]
+[v printf@fmt fmt `*.25Cuc  1 p 2 30 ]
 "13
 } 0
 "1390 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1393
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 85 ]
-[s S712 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 68 ]
+[s S1958 _IO_FILE 0 ]
 "1390
-[v vfprintf@fp fp `*.2S712  1 p 2 79 ]
-[v vfprintf@fmt fmt `*.25Cuc  1 p 2 81 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 83 ]
+[v vfprintf@fp fp `*.2S1958  1 p 2 24 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 26 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 28 ]
 "1404
 } 0
 "692
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
 "696
-[v vfpfcnvrt@ll ll `o  1 a 8 71 ]
-[s S712 _IO_FILE 0 ]
+[v vfpfcnvrt@ll ll `o  1 a 8 60 ]
+[s S1958 _IO_FILE 0 ]
 "692
-[v vfpfcnvrt@fp fp `*.2S712  1 p 2 63 ]
-[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 65 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
+[v vfpfcnvrt@fp fp `*.2S1958  1 p 2 18 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 20 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 22 ]
 "1387
 } 0
 "287
 [v _dtoa dtoa `(i  1 s 2 dtoa ]
 {
 "290
-[v dtoa@n n `o  1 a 8 53 ]
+[v dtoa@n n `o  1 a 8 8 ]
 "289
-[v dtoa@i i `i  1 a 2 61 ]
-[v dtoa@s s `i  1 a 2 51 ]
-[v dtoa@w w `i  1 a 2 49 ]
-[v dtoa@p p `i  1 a 2 47 ]
-[s S712 _IO_FILE 0 ]
+[v dtoa@i i `i  1 a 2 16 ]
+[v dtoa@s s `i  1 a 2 6 ]
+[v dtoa@w w `i  1 a 2 4 ]
+[v dtoa@p p `i  1 a 2 2 ]
+[s S1958 _IO_FILE 0 ]
 "287
-[v dtoa@fp fp `*.2S712  1 p 2 27 ]
-[v dtoa@d d `o  1 p 8 29 ]
+[v dtoa@fp fp `*.2S1958  1 p 2 40 ]
+[v dtoa@d d `o  1 p 8 42 ]
 "328
 } 0
 "72
 [v _pad pad `(i  1 s 2 pad ]
 {
 "74
-[v pad@w w `i  1 a 2 25 ]
-[v pad@i i `i  1 a 2 23 ]
-[s S712 _IO_FILE 0 ]
+[v pad@w w `i  1 a 2 38 ]
+[v pad@i i `i  1 a 2 36 ]
+[s S1958 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.2S712  1 p 2 16 ]
-[v pad@buf buf `*.39uc  1 p 2 18 ]
-[v pad@p p `i  1 p 2 20 ]
+[v pad@fp fp `*.2S1958  1 p 2 29 ]
+[v pad@buf buf `*.39uc  1 p 2 31 ]
+[v pad@p p `i  1 p 2 33 ]
 "95
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "7
-[v strlen@a a `*.39Cuc  1 a 2 2 ]
+[v strlen@a a `*.39Cuc  1 a 2 15 ]
 "5
-[v strlen@s s `*.39Cuc  1 p 2 0 ]
+[v strlen@s s `*.39Cuc  1 p 2 13 ]
 "12
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputs.c
 [v _fputs fputs `(i  1 e 2 0 ]
 {
 "11
-[v fputs@i i `i  1 a 2 14 ]
+[v fputs@i i `i  1 a 2 27 ]
 "10
-[v fputs@c c `uc  1 a 1 13 ]
+[v fputs@c c `uc  1 a 1 26 ]
 "8
-[v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S695 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.2S695  1 p 2 11 ]
+[v fputs@s s `*.39Cuc  1 p 2 22 ]
+[s S1941 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.2S1941  1 p 2 24 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
-[v fputc@c c `i  1 p 2 0 ]
-[s S695 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.2S695  1 p 2 2 ]
+[v fputc@c c `i  1 p 2 13 ]
+[s S1941 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.2S1941  1 p 2 15 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\putch.c
@@ -293,143 +790,143 @@ HIGH 1
 "1 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 {
-[v abs@a a `i  1 p 2 18 ]
+[v abs@a a `i  1 p 2 31 ]
 "4
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aomod.c
 [v ___aomod __aomod `(o  1 e 8 0 ]
 {
 "12
-[v ___aomod@sign sign `uc  1 a 1 17 ]
-[v ___aomod@counter counter `uc  1 a 1 16 ]
+[v ___aomod@sign sign `uc  1 a 1 30 ]
+[v ___aomod@counter counter `uc  1 a 1 29 ]
 "9
-[v ___aomod@dividend dividend `o  1 p 8 0 ]
-[v ___aomod@divisor divisor `o  1 p 8 8 ]
+[v ___aomod@dividend dividend `o  1 p 8 13 ]
+[v ___aomod@divisor divisor `o  1 p 8 21 ]
 "36
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\aodiv.c
 [v ___aodiv __aodiv `(o  1 e 8 0 ]
 {
 "12
-[v ___aodiv@quotient quotient `o  1 a 8 18 ]
+[v ___aodiv@quotient quotient `o  1 a 8 31 ]
 "13
-[v ___aodiv@sign sign `uc  1 a 1 17 ]
-[v ___aodiv@counter counter `uc  1 a 1 16 ]
+[v ___aodiv@sign sign `uc  1 a 1 30 ]
+[v ___aodiv@counter counter `uc  1 a 1 29 ]
 "9
-[v ___aodiv@dividend dividend `o  1 p 8 0 ]
-[v ___aodiv@divisor divisor `o  1 p 8 8 ]
+[v ___aodiv@dividend dividend `o  1 p 8 13 ]
+[v ___aodiv@divisor divisor `o  1 p 8 21 ]
 "43
 } 0
-"61 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+"46 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
 [v _pinMode pinMode `(v  1 e 1 0 ]
 {
 [v pinMode@pin pin `uc  1 a 1 wreg ]
-"72
-[v pinMode@bit_val bit_val `uc  1 a 1 45 ]
-"71
-[v pinMode@port port `E6026  1 a 1 43 ]
-"70
-[v pinMode@port_num port_num `uc  1 a 1 42 ]
-"61
+"57
+[v pinMode@bit_val bit_val `uc  1 a 1 58 ]
+"56
+[v pinMode@port port `E6026  1 a 1 56 ]
+"55
+[v pinMode@port_num port_num `uc  1 a 1 55 ]
+"46
 [v pinMode@pin pin `uc  1 a 1 wreg ]
-[v pinMode@mode mode `uc  1 p 1 39 ]
-[v pinMode@pin pin `uc  1 a 1 44 ]
-"188
+[v pinMode@mode mode `E6021  1 p 1 52 ]
+[v pinMode@pin pin `uc  1 a 1 57 ]
+"170
 } 0
-"30 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
+"31 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\bits.c
 [v _setBit setBit `T(v  1 e 1 0 ]
 {
-[v setBit@p p `*.39VEuc  1 p 2 3 ]
-[v setBit@b b `uc  1 p 1 5 ]
-"32
+[v setBit@p p `*.39VEuc  1 p 2 16 ]
+[v setBit@b b `uc  1 p 1 18 ]
+"33
 } 0
-"34
+"35
 [v _clearBit clearBit `T(v  1 e 1 0 ]
 {
-[v clearBit@p p `*.39VEuc  1 p 2 3 ]
-[v clearBit@b b `uc  1 p 1 5 ]
-"36
+[v clearBit@p p `*.39VEuc  1 p 2 16 ]
+[v clearBit@b b `uc  1 p 1 18 ]
+"37
 } 0
-"190 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
-[v _digitalRead digitalRead `(E6339  1 e 1 0 ]
+"172 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+[v _digitalRead digitalRead `(E6032  1 e 1 0 ]
 {
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-"193
-[v digitalRead@bit_val bit_val `uc  1 a 1 45 ]
-"194
-[v digitalRead@value value `E6032  1 a 1 44 ]
-"191
-[v digitalRead@port_num port_num `uc  1 a 1 43 ]
-"192
-[v digitalRead@port port `E6026  1 a 1 42 ]
-"190
+"175
+[v digitalRead@bit_val bit_val `uc  1 a 1 58 ]
+"176
+[v digitalRead@value value `E6032  1 a 1 57 ]
+"173
+[v digitalRead@port_num port_num `uc  1 a 1 56 ]
+"174
+[v digitalRead@port port `E6026  1 a 1 55 ]
+"172
 [v digitalRead@pin pin `uc  1 a 1 wreg ]
-[v digitalRead@pin pin `uc  1 a 1 41 ]
-"216
+[v digitalRead@pin pin `uc  1 a 1 54 ]
+"198
 } 0
-"37 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
+"39 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\bits.c
 [v _readBit readBit `T(uc  1 e 1 0 ]
 {
-[v readBit@p p `*.39VEuc  1 p 2 0 ]
-[v readBit@b b `uc  1 p 1 2 ]
-"39
+[v readBit@p p `*.39VEuc  1 p 2 13 ]
+[v readBit@b b `uc  1 p 1 15 ]
+"41
 } 0
-"10 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\pins.c
 [v _pinToIndex pinToIndex `(uc  1 e 1 0 ]
 {
 [v pinToIndex@pin pin `uc  1 a 1 wreg ]
-"11
-[v pinToIndex@pins pins `[36]uc  1 a 36 1 ]
-"16
-[v pinToIndex@i i `uc  1 a 1 38 ]
-"10
+"4
+[v pinToIndex@pins pins `[36]uc  1 a 36 14 ]
+"9
+[v pinToIndex@i i `uc  1 a 1 51 ]
+"3
 [v pinToIndex@pin pin `uc  1 a 1 wreg ]
-[v pinToIndex@F6037 F6037 `[36]uc  1 s 36 F6037 ]
-[v pinToIndex@pin pin `uc  1 a 1 37 ]
-"23
+[v pinToIndex@F6050 F6050 `[36]uc  1 s 36 F6050 ]
+[v pinToIndex@pin pin `uc  1 a 1 50 ]
+"16
 } 0
-"25
+"18
 [v _convertToPort convertToPort `(E6026  1 e 1 0 ]
 {
 [v convertToPort@i i `uc  1 a 1 wreg ]
 [v convertToPort@i i `uc  1 a 1 wreg ]
-[v convertToPort@i i `uc  1 a 1 0 ]
-"41
+[v convertToPort@i i `uc  1 a 1 13 ]
+"30
 } 0
-"43
+"32
 [v _convertToBit convertToBit `(uc  1 e 1 0 ]
 {
 [v convertToBit@i i `uc  1 a 1 wreg ]
 [v convertToBit@i i `uc  1 a 1 wreg ]
-[v convertToBit@i i `uc  1 a 1 0 ]
-"59
+[v convertToBit@i i `uc  1 a 1 13 ]
+"44
 } 0
-"7 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mydelays.c
+"5 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\delays.c
 [v _delay delay `(v  1 e 1 0 ]
 {
-[v delay@ms ms `ul  1 p 4 0 ]
-"13
+[v delay@ms ms `ul  1 p 4 13 ]
+"10
 } 0
-"19 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\mylib.c
+"19 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\bits.c
 [v _bitWrite bitWrite `T(v  1 e 1 0 ]
 {
-[v bitWrite@number number `*.39uc  1 p 2 7 ]
-[v bitWrite@b b `uc  1 p 1 9 ]
-[v bitWrite@val val `uc  1 p 1 10 ]
+[v bitWrite@number number `*.39uc  1 p 2 20 ]
+[v bitWrite@b b `uc  1 p 1 22 ]
+[v bitWrite@val val `uc  1 p 1 23 ]
 "21
 } 0
 "15
 [v _bitSet bitSet `T(v  1 e 1 0 ]
 {
-[v bitSet@number number `*.39uc  1 p 2 3 ]
-[v bitSet@b b `uc  1 p 1 5 ]
+[v bitSet@number number `*.39uc  1 p 2 16 ]
+[v bitSet@b b `uc  1 p 1 18 ]
 "17
 } 0
 "7
 [v _bitClear bitClear `T(v  1 e 1 0 ]
 {
-[v bitClear@number number `*.39uc  1 p 2 3 ]
-[v bitClear@b b `uc  1 p 1 5 ]
+[v bitClear@number number `*.39uc  1 p 2 16 ]
+[v bitClear@b b `uc  1 p 1 18 ]
 "9
 } 0
 "3
@@ -437,7 +934,7 @@ HIGH 1
 {
 [v bitValue@b b `uc  1 a 1 wreg ]
 [v bitValue@b b `uc  1 a 1 wreg ]
-[v bitValue@b b `uc  1 a 1 2 ]
+[v bitValue@b b `uc  1 a 1 15 ]
 "5
 } 0
 "11
@@ -445,7 +942,49 @@ HIGH 1
 {
 [v bitRead@number number `uc  1 a 1 wreg ]
 [v bitRead@number number `uc  1 a 1 wreg ]
-[v bitRead@b b `uc  1 p 1 0 ]
-[v bitRead@number number `uc  1 a 1 3 ]
+[v bitRead@b b `uc  1 p 1 13 ]
+[v bitRead@number number `uc  1 a 1 16 ]
 "13
+} 0
+"15 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\uart.c
+[v _myIsr myIsr `IIH(v  1 e 1 0 ]
+{
+"23
+[v myIsr@byte byte `Cuc  1 a 1 12 ]
+"27
+} 0
+"3 C:\Users\lejla\Desktop\Masaryk\predavanja\2. semestar\PB171 - Seminar on Digital System Design\PB171\Functions.X\buffer.c
+[v _bufferStore bufferStore `(v  1 e 1 0 ]
+{
+[s S704 buffer 67 `[64]c 1 buf 64 0 `uc 1 head 1 64 `uc 1 tail 1 65 `uc 1 size 1 66 ]
+[v bufferStore@buffer buffer `C*.39S704  1 p 2 0 ]
+[v bufferStore@byte byte `Cc  1 p 1 2 ]
+"10
+} 0
+"28
+[v _bufferSize bufferSize `(uc  1 e 1 0 ]
+{
+[s S704 buffer 67 `[64]c 1 buf 64 0 `uc 1 head 1 64 `uc 1 tail 1 65 `uc 1 size 1 66 ]
+[v bufferSize@buffer buffer `C*.39CS704  1 p 2 0 ]
+"30
+} 0
+"12
+[v _bufferLoad bufferLoad `(c  1 e 1 0 ]
+{
+"16
+[v bufferLoad@byte byte `Cc  1 a 1 7 ]
+[s S704 buffer 67 `[64]c 1 buf 64 0 `uc 1 head 1 64 `uc 1 tail 1 65 `uc 1 size 1 66 ]
+"12
+[v bufferLoad@buffer buffer `C*.39S704  1 p 2 4 ]
+"21
+} 0
+"23
+[v _bufferPeek bufferPeek `(c  1 e 1 0 ]
+{
+"24
+[v bufferPeek@byte byte `Cc  1 a 1 3 ]
+[s S704 buffer 67 `[64]c 1 buf 64 0 `uc 1 head 1 64 `uc 1 tail 1 65 `uc 1 size 1 66 ]
+"23
+[v bufferPeek@buffer buffer `C*.39CS704  1 p 2 0 ]
+"26
 } 0

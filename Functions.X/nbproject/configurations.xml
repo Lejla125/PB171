@@ -12,13 +12,23 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>mylib.h</itemPath>
-      <itemPath>mylib.c</itemPath>
-      <itemPath>fun.c</itemPath>
       <itemPath>pins.h</itemPath>
       <itemPath>pins.c</itemPath>
-      <itemPath>mydelays.h</itemPath>
-      <itemPath>mydelays.c</itemPath>
+      <itemPath>bits.c</itemPath>
+      <itemPath>bits.h</itemPath>
+      <itemPath>delays.c</itemPath>
+      <itemPath>delays.h</itemPath>
+      <itemPath>uart.c</itemPath>
+      <itemPath>uart.h</itemPath>
+      <itemPath>buffer.h</itemPath>
+      <itemPath>buffer.c</itemPath>
+      <itemPath>helpers.c</itemPath>
+      <itemPath>helpers.h</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>parse_int.c</itemPath>
+      <itemPath>parse_int.h</itemPath>
+      <itemPath>eeprom.h</itemPath>
+      <itemPath>eeprom.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
